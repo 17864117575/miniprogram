@@ -1,0 +1,104 @@
+.weui-serch-bar__container {
+  display: flex;
+  height: 10vh;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+}
+
+.weui-search-bar__form {
+  display: flex;
+  position: relative;
+  border-radius: 5px;
+  background: #eee;
+  border: 1rpx solid #e6e6ea;
+  height: 80rpx;
+  box-shadow: 0rpx 0rpx 10rpx #e6e6ea inset;
+  width: 75%;
+}
+
+.weui-search-bar__form>text {
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 50rpx;
+  text-align: center;
+  color: #999;
+}
+
+.weui-search-bar__text {
+  height: inherit;
+  width: 100%;
+}
+
+.weui-search-bar__create {
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 60rpx;
+  width: 80rpx;
+  height: 80rpx;
+  color: #fff;
+  background: #2982ff;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.weui-search-bar__create:hover {
+  opacity: .7;
+}
+
+.client-list-container {
+  height: 90vh;
+  overflow: scroll;
+}
+
+.client-list-item {
+  height: 5em;
+  background: #fff;
+  margin: 20rpx;
+  position: relative;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.client-list-item__icon {
+  font-size: 26px;
+  margin-left: 10px;
+}
+
+.client-list-item__title {
+  font-size: 40rpx;
+  margin: 0rpx 20rpx;
+}
+
+.client-list-item__type {
+  font-size: 30rpx;
+  color: #999;
+}
+
+.client-list-item__number {
+  margin-left: 90rpx;
+  color: #999;
+}
+
+/* 客户状态 */
+.icon-importance,
+.icon-normal {
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  width: 120rpx;
+  height: 90rpx;
+  clip-path: polygon(0 0, 100% 100%, 100% 0, 0 0);
+  color: #fff;
+  font-size: 28rpx;
+  text-align: right;
+  letter-spacing: 10rpx
+}
+
+.icon-importance {
+  background: #FD3560;
+}
+
+.icon-normal {
+  background: #3b9702;
+}

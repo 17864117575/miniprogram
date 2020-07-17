@@ -1,0 +1,49 @@
+<import src="../../common/head.wxml" />
+<import src="../../common/foot.wxml" />
+
+<view class="container">
+	<template is="head" data="{{title: title}}" />
+
+	<form bindsubmit="save">
+		<view class="form-wrap">
+			<view class="flex-wrap input-wrap" bindtap="updateAvatar">
+				<text class="label">更改头像</text>
+				<view class="account-info-input">
+					<block wx:if="{{avatarUrl != null}}">
+						<image style="position:absolute;right:40rpx;" class="user-avatar" src="{{avatarUrl}}" background-size="cover"></image>
+					</block>
+					<block wx:else>
+						<text style="position:absolute;right:40rpx;font-size: 60rpx;color:#999" class="icon-gerenzhongxin user-avatar"></text>
+					</block>
+					<text class="icon-xiangyou" style="position:absolute;right:20rpx;line-height:46px;color:#999;"></text>
+				</view>
+			</view>
+			<view class="flex-wrap input-wrap" style="background:#eee">
+				<text class="label">登录名</text>
+				<input bindinput="updatePassword" id="password" class="account-info-input" value="{{username}}" disabled />
+			</view>
+			<view class="flex-wrap input-wrap">
+				<text class="label">密码</text>
+				<input password bindinput="updatePassword" id="password" class="account-info-input" value="{{password}}" maxlength="12" placeholder="长度在6-12个字符" />
+			</view>
+			<view class="flex-wrap input-wrap">
+				<text class="label">姓名</text>
+				<input bindinput="updatePassword" id="nickname" class="account-info-input" value="{{nickname}}" maxlength="12" />
+			</view>
+			<view class="flex-wrap input-wrap">
+				<text class="label">性别</text>
+				<radio-group class="account-info-input" style="display:flex;align-items:center;" bindchange="updateGender" id="gender">
+					<radio style="margin-right:30rpx;" value="1" checked="{{gender==1}}">男</radio>
+					<radio style="margin-right:30rpx;" value="2" checked="{{gender==2}}">女</radio>
+				</radio-group>
+			</view>
+			<view class="flex-wrap input-wrap">
+				<text class="label">邮箱</text>
+				<input bindinput="updateEmail" id="email" class="account-info-input" value="{{email}}" />
+			</view>
+			<view class="btn-area" id="buttonContainer">
+				<button class="submit" type="primary" form-type="submit">保存</button>
+			</view>
+		</view>
+	</form>
+</view>

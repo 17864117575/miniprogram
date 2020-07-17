@@ -1,0 +1,16 @@
+<view class="container list-container">
+	<view class="list-item" wx:for="{{contactList}}">
+		<view class="right">
+			<view class="title">
+				<view class="title-name">
+					<image src="{{item.gender == '1'? '../../../image/nan.png':'../../../image/nv.png' }}"></image>
+					<view class="name">{{item.name}}</view>
+					<view class="company">{{'（'+ item.company +'）'}}</view>
+				</view>
+				<view class="phone">{{item.phone}}</view>
+			</view>
+			<!-- <view class="time">{{item.time}}</view> -->
+		</view>
+		<button class="button" type="primary" bindtap="onMakingCall" data-phonenumber="{{item.phone}}">拨号</button>
+	</view>
+</view>

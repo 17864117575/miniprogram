@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/info/client/client",
+    "pages/index/index",
+    "pages/login/login",
+    "pages/logs/logs",
+    "pages/user/user",
+    "pages/settings/settings",
+    "pages/timecard/normal/normal",
+    "pages/overwork/create/create",
+    "pages/sample/index/index",
+    "pages/info/index/index",
+    "pages/info/salary/salary",
+    "pages/sample/telephonenumbers/phonenumbers",
+    "pages/info/payment/payment",
+    "pages/sample/telephonesetting/telephonesetting"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#006df0",
+    "navigationBarTitleText": "艾卓CRM",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#006df0",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/work.png",
+        "selectedIconPath": "image/work_s.png",
+        "text": "办公"
+      },
+      {
+        "pagePath": "pages/info/index/index",
+        "iconPath": "image/func.png",
+        "selectedIconPath": "image/func_s.png",
+        "text": "功能"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "iconPath": "image/mine.png",
+        "selectedIconPath": "image/mine_s.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}
