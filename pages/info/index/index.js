@@ -3,7 +3,7 @@ Page({
   data: {
     grids: [{
         name: '客户',
-        path: "salary",
+        path: "client",
         icon: "company.png"
       },
       {

@@ -1,9 +1,11 @@
 .weui-serch-bar__container {
   display: flex;
+  flex-direction: column;
   height: 10vh;
   justify-content: space-around;
   align-items: center;
   background: #fff;
+  padding-top: 40rpx;
 }
 
 .weui-search-bar__form {
@@ -47,7 +49,7 @@
 }
 
 .client-list-container {
-  height: 90vh;
+  height: 85vh;
   overflow: scroll;
 }
 
@@ -58,6 +60,11 @@
   position: relative;
   border-radius: 20rpx;
   overflow: hidden;
+  opacity: 1;
+}
+
+.client-list-item:hover {
+  opacity: .7;
 }
 
 .client-list-item__icon {
