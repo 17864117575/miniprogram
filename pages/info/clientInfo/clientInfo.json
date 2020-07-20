@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "htabs": "../../../components/htabs/htabs"
+  }
+}
