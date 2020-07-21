@@ -14,8 +14,8 @@
 		<view class="client-list-item" wx:for="{{clientList}}" wx:key="key" bindtap="onClientItemClick" data-data="{{item}}">
 			<view style="display:flex;align-items:center;margin-top:20rpx;">
 				<text class="icon-gongsi client-list-item__icon"></text>
-				<text class="client-list-item__title">{{item.companyName}}</text>
-				<text class="client-list-item__type">{{'(' + item.industry + ')'}}</text>
+				<text class="client-list-item__title">{{item.name}}</text>
+				<text class="client-list-item__type">{{'(' + item.type + ')'}}</text>
 			</view>
 			<text class="client-list-item__number">{{item.telephone}}</text>
 			<view class="{{item.importance?'icon-importance':'icon-normal'}}">{{item.importance?'重要':'普通'}}</view>

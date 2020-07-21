@@ -22,53 +22,93 @@ Page({
       active: false
     }],
     clientList: [{
-      companyName: "济南efd公司",
+      name: "济南efd公司",
+      deal: true,//是否成交
       telephone: '13805317777',
       importance: false, // 是否是重点客户
       belongId: true, //应该是归属的id与自己的id比对，先用bool代替
-      industry: '美容', //客户行业
+      type: '美容', //客户行业
+      address: '',
+      addressdetail: '',
+      origin: '电话',
+      remark: ''
     }, {
-      companyName: "广州玉器公司",
+      name: "济南efd公司",
+      deal: false,//是否成交
       telephone: '13805317777',
-      importance: true,
-      belongId: false,
-      industry: '制造业',
+      importance: false, // 是否是重点客户
+      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
+      type: '美容', //客户行业
+      address: '',
+      addressdetail: '',
+      origin: '电话',
+      remark: ''
     }, {
-      companyName: "济南efd公司",
+      name: "济南efd公司",
+      deal: true,//是否成交
       telephone: '13805317777',
-      importance: false,
-      belongId: true,
-      industry: '电子商务',
+      importance: false, // 是否是重点客户
+      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
+      type: '美容', //客户行业
+      address: '',
+      addressdetail: '',
+      origin: '电话',
+      remark: ''
     }, {
-      companyName: "济南efd公司",
+      name: "济南efd公司",
+      deal: true,//是否成交
       telephone: '13805317777',
-      importance: true,
-      belongId: false,
-      industry: '美容',
+      importance: false, // 是否是重点客户
+      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
+      type: '美容', //客户行业
+      address: '',
+      addressdetail: '',
+      origin: '电话',
+      remark: ''
     }, {
-      companyName: "济南efd公司",
+      name: "济南efd公司",
+      deal: true,//是否成交
       telephone: '13805317777',
-      importance: true,
-      belongId: true,
-      industry: '美容',
+      importance: true, // 是否是重点客户
+      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
+      type: '美容', //客户行业
+      address: '',
+      addressdetail: '',
+      origin: '电话',
+      remark: ''
     }, {
-      companyName: "济南efd公司",
+      name: "济南efd公司",
+      deal: true,//是否成交
       telephone: '13805317777',
-      importance: false,
-      belongId: true,
-      industry: '美容',
+      importance: false, // 是否是重点客户
+      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
+      type: '美容', //客户行业
+      address: '',
+      addressdetail: '',
+      origin: '电话',
+      remark: '老王的重要资源'
     }, {
-      companyName: "济南efd公司",
+      name: "济南efd公司",
+      deal: true,//是否成交
       telephone: '13805317777',
-      importance: true,
-      belongId: true,
-      industry: '美容',
+      importance: false, // 是否是重点客户
+      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
+      type: '美容', //客户行业
+      address: '',
+      addressdetail: '',
+      origin: '电话',
+      remark: ''
     }, {
-      companyName: "济南efd公司",
+      name: "济南efd公司",
+      deal: true,//是否成交
       telephone: '13805317777',
-      importance: true,
-      belongId: true,
-      industry: '美容',
+      importance: true, // 是否是重点客户
+      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
+      type: '美容', //客户行业
+      address: '',
+      addressdetail: '',
+      origin: '电话',
+      remark: ''
     }]
   },
 

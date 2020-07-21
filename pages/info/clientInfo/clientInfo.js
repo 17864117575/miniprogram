@@ -1,3 +1,10 @@
+var PageType = {
+  INFO: 0,
+  PERSON: 1,
+  TASK: 2,
+  ORDER: 3
+}
+
 Page({
 
   /**
@@ -23,6 +30,13 @@ Page({
       active: false
     }],
     index: 0, //所选 htab 下标
+    personList: [{
+      name:'王先生',
+      gender:1,
+      telephone:12345689,
+    }],//联系人列表
+    orderList: [], //订单列表
+    taskList: [], // 跟进记录
   },
 
   onLoad: function (options) {
@@ -33,7 +47,7 @@ Page({
       })
 
       wx.setNavigationBarTitle({
-        title: clientInfo.companyName ? clientInfo.companyName : ''
+        title: clientInfo.name ? clientInfo.name : ''
       })
     }
   },
@@ -43,6 +57,7 @@ Page({
 
   },
 
+  // 修改一次发送请求获取对应数据
   handleItemChange: function (e) {
     const {
       index
@@ -50,6 +65,17 @@ Page({
     this.setData({
       index
     })
+
+    switch (parseInt(index)) {
+      case PageType.INFO:
+        break;
+      case PageType.ORDER:
+        break;
+      case PageType.TASK:
+        break;
+      case PageType.ORDER:
+        break;
+    }
   },
 
   onBtnSetClick: function () {

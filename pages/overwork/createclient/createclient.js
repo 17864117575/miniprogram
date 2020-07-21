@@ -34,6 +34,11 @@ Page({
       clientInfo
     })
 
+    // 到了这一步一定是编辑信息
+    wx.setNavigationBarTitle({
+      title: '编辑客户',
+    })
+
     wx.showLoading({
       title: '请稍后~',
     })

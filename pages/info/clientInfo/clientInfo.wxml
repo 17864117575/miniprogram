@@ -4,38 +4,47 @@
 		<block wx:if="{{index==0}}">
 			<view class="client-info-container">
 				<view class="client-info-cell">
-					<view class="weui-label">客户姓名： </view>
-					<view class="weui-cell__bd">{{userInfo?userInfo.name:'客户姓名'}}</view>
+					<view class="weui-label">客户名称： </view>
+					<view class="weui-cell__bd">{{clientInfo?clientInfo.name:'客户姓名'}}</view>
+				</view>
+				<view class="client-info-cell">
+					<view class="weui-label">成交状态： </view>
+					<block wx:if="{{clientInfo != null && clientInfo.deal}}">
+						<view class="weui-cell__bd" style="color:green;">已成交</view>
+					</block>
+					<block wx:else>
+						<view class="weui-cell__bd" style="color:red;">未成交</view>
+					</block>
 				</view>
 				<view class="client-info-cell">
 					<view class="weui-label">客户级别： </view>
-					<view class="weui-cell__bd">{{userInfo?userInfo.importance?'重点客户':'普通客户':'普通客户'}}</view>
+					<view class="weui-cell__bd">{{clientInfo?clientInfo.importance?'重点客户':'普通客户':'普通客户'}}</view>
 				</view>
 				<view class="client-info-cell">
 					<view class="weui-label">联系方式： </view>
-					<view class="weui-cell__bd title-telephone__line">{{userInfo?userInfo.phonenumber:'联系方式'}}</view>
+					<view class="weui-cell__bd title-telephone__line">{{clientInfo?clientInfo.telephone:'联系方式'}}</view>
 				</view>
 			</view>
 			<view class="client-info-container">
 				<view class="client-info-cell">
 					<view class="weui-label">来源： </view>
-					<view class="weui-cell__bd">{{userInfo?userInfo.rigion:'来源'}}</view>
+					<view class="weui-cell__bd">{{clientInfo?clientInfo.rigion:'来源'}}</view>
 				</view>
 				<view class="client-info-cell">
 					<view class="weui-label">行业： </view>
-					<view class="weui-cell__bd">{{userInfo?userInfo.type:'行业'}}</view>
+					<view class="weui-cell__bd">{{clientInfo?clientInfo.type:'行业'}}</view>
 				</view>
 				<view class="client-info-cell">
 					<view class="weui-label">城市： </view>
-					<view class="weui-cell__bd">{{userInfo?userInfo.addresss:'地址'}}</view>
+					<view class="weui-cell__bd">{{clientInfo?clientInfo.addresss:'地址'}}</view>
 				</view>
 				<view class="client-info-cell">
 					<view class="weui-label">详细地址： </view>
-					<view class="weui-cell__bd">{{userInfo?userInfo.addressdetail:'详细地址'}}</view>
+					<view class="weui-cell__bd">{{clientInfo?clientInfo.addressdetail:'详细地址'}}</view>
 				</view>
 				<view class="client-info-cell">
 					<view class="weui-label">备注： </view>
-					<view class="weui-cell__bd">{{userInfo?userInfo.remark:'备注'}}</view>
+					<view class="weui-cell__bd">{{clientInfo?clientInfo.remark:'备注'}}</view>
 				</view>
 			</view>
 			<view class="client-info-bottom">
@@ -44,15 +53,24 @@
 		</block>
 
 		<block wx:elif="{{index==1}}">
-			<text>1</text>
+			<view class="client-info-container">
+
+			</view>
+			<view class="empty-tip" wx:if="{{taskList.length <= 0}}">没有更多了</view>
 		</block>
 
 		<block wx:elif="{{index==2}}">
-			<text>2</text>
+			<view class="client-info-container">
+
+			</view>
+			<view class="empty-tip" wx:if="{{taskList.length <= 0}}">没有更多了</view>
 		</block>
 
 		<block wx:else>
-			<text>3</text>
+			<view class="client-info-container">
+
+			</view>
+			<view class="empty-tip" wx:if="{{taskList.length <= 0}}">没有更多了</view>
 		</block>
 	</view>
 </view>

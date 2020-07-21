@@ -22,7 +22,7 @@
 		<navigator wx:if="{{user == null}}" url="../sample/telephonenumbers/phonenumbers" class="navigator user">查看联系人</navigator>
 
 		<view class="btn-area" id="buttonContainer">
-			<button bindtap="onBtnExitClick" type="primary">{{UI[index].save}}</button>
+			<button bindtap="onBtnExitClick" type="warn">{{UI[index].save}}</button>
 		</view>
 	</view>
 	<!--<template is="foot" />-->
