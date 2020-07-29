@@ -1,5 +1,6 @@
 var app = getApp();
 
+// 根据一个值来判定这个信息是 客户 还是 企业
 Page({
   data: {
     // 客户信息
@@ -22,21 +23,46 @@ Page({
     typeList: [
       "膏霜", "面膜", "精华", "洗涤", "专业线", "乳液", "其他"
     ],
+    isclient: true, //是否是客户，否则是企业
   },
 
   onLoad: function (options) {
     if (Object.keys(options).length == 0)
       return;
 
-    const clientInfo = JSON.parse(options.data);
-    if (!clientInfo) return;
+    let {
+      isclient
+    } = options;
+    if (isclient != null) {
+      try {
+        isclient = JSON.parse(isclient);
+        this.setData({
+          isclient
+        })
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
+    let titleName = isclient ? '联系人' : '客户';
+    let clientInfo = null;
+    if (options.data) {
+      clientInfo = JSON.parse(options.data);
+    }
+    if (!clientInfo) {
+      // 到了这一步一定是编辑信息
+      wx.setNavigationBarTitle({
+        title: '新建' + titleName,
+      })
+      return;
+    }
+
     this.setData({
       clientInfo
     })
-
     // 到了这一步一定是编辑信息
     wx.setNavigationBarTitle({
-      title: '编辑客户',
+      title: '编辑' + titleName,
     })
 
     wx.showLoading({
@@ -87,7 +113,51 @@ Page({
 
   // 删除联系人，clientId是客户id
   onBtnDeleteClick: function (clientId) {
+    const {
+      isclient
+    } = this.data;
 
+    wx.showModal({
+      title: '提示',
+      content: isclient ? '是否删除该联系人' : '是否删除该客户',
+      cancelColor: '#E64340',
+      success(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '请稍后~',
+            mask: true
+          })
+
+          wx.request({
+            url: 'url',
+            success(e) {},
+            fail(e) {
+              console.log(e)
+            },
+            complete() {
+              wx.hideLoading({
+                success: (res) => {
+                  wx.showToast({
+                    title: '删除成功',
+                    duration: 2000
+                  });
+                  // todo：刷新并设置新的跟进记录
+                  setTimeout(() => {
+                    wx.navigateBack({
+                      delta: 1,
+                    })
+                  }, 2000);
+                },
+              })
+            }
+          })
+
+
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
 
   formSubmit: function (e) {

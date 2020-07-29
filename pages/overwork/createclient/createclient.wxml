@@ -3,11 +3,13 @@
 
 		<view class="weui-cells weui-cells_after-title">
 			<view class="weui-cell">
-				<view class="weui-label">客户姓名 <p style="color:red;">*</p>
+				<view class="weui-label">
+					{{isclient? '联系人':'客户姓名'}}
+					<p style="color:red;">*</p>
 				</view>
 				<input class="weui-cell__bd" name="name" value="{{clientInfo.name}}"></input>
 			</view>
-			<view class="weui-cell">
+			<view class="weui-cell" wx:if="{{isclient}}">
 				<view class="weui-label">性别 </view>
 				<radio-group class="weui-cell__bd" bindchange="onGenderChange" name="gender" value="{{clientInfo.gender}}">
 					<radio value="1" checked="{{clientInfo.gender==1}}">男</radio>
@@ -18,41 +20,60 @@
 				<view class="weui-label">联系方式</view>
 				<input class="weui-cell__bd" type="number" name="telephone" value="{{clientInfo.telephone}}"></input>
 			</view>
-			<view class="weui-cell">
-				<view class="weui-label">客户行业</view>
-				<picker class="weui-cell__bd" range="{{typeList}}" name="type" value="{{clientInfo.type}}" bindchange="onTypeChange">
-					<view name="">{{typeList[clientInfo.type]}}</view>
-					<text class="icon-xiangyou item-arrow"></text>
-				</picker>
+			<view class="weui-cell" wx:if="{{isclient}}">
+				<view class="weui-label">电子邮箱</view>
+				<input class="weui-cell__bd" name="email" value="{{clientInfo.email}}"></input>
 			</view>
+
+			<block wx:if="{{!isclient}}">
+				<view class="weui-cell">
+					<view class="weui-label">客户行业</view>
+					<picker class="weui-cell__bd" range="{{typeList}}" name="type" value="{{clientInfo.type}}" bindchange="onTypeChange">
+						<view name="">{{typeList[clientInfo.type]}}</view>
+						<text class="icon-arrow-right item-arrow"></text>
+					</picker>
+				</view>
+				<view class="weui-cell">
+					<view class="weui-label">客户来源</view>
+					<picker class="weui-cell__bd" range="{{originList}}" name="origin" value="{{clientInfo.origin}}" bindchange="onOriginChange">
+						<view name="">{{originList[clientInfo.origin]}}</view>
+						<text class="icon-arrow-right item-arrow"></text>
+					</picker>
+				</view>
+			</block>
+
 			<view class="weui-cell">
-				<view class="weui-label">客户来源</view>
-				<picker class="weui-cell__bd" range="{{originList}}" name="origin" value="{{clientInfo.origin}}" bindchange="onOriginChange">
-					<view name="">{{originList[clientInfo.origin]}}</view>
-					<text class="icon-xiangyou item-arrow"></text>
-				</picker>
-			</view>
-			<view class="weui-cell">
-				<view class="weui-label">重点客户 <p style="color:red;">*</p>
+				<view class="weui-label">{{isclient?'关键决策人':'重点客户'}}
+					<p style="color:red;">*</p>
 				</view>
 				<view class="weui-cell__bd">
 					<switch checked="{{clientInfo.importance}}" name="importance" value="{{clientInfo.importance}}" bindchange="onImportanceChange"></switch>
 				</view>
 			</view>
+
+			<view class="weui-cell">
+				<view class="weui-label">
+					职务
+					<p style="color:red;">*</p>
+				</view>
+				<input class="weui-cell__bd" name="email" value="{{clientInfo.occuption}}"></input>
+			</view>
 		</view>
 
 		<view class="weui-cells weui-cells_after-title" style="margin-top:40rpx;">
-			<view class="weui-cell">
-				<view class="weui-label">所在城市</view>
-				<picker class="weui-cell__bd" mode="region" name="address" value="{{clientInfo.address}}" bindchange="onAddressChange">
-					<view name="">{{clientInfo.address}}</view>
-					<text class="icon-xiangyou item-arrow"></text>
-				</picker>
-			</view>
+			<picker mode="region" name="address" value="" bindchange="onAddressChange">
+				<view class="weui-cell">
+					<view class="weui-label">所在城市</view>
+					<view class="weui-cell__bd">
+						<view name="">{{clientInfo.address}}</view>
+						<text class="icon-arrow-right item-arrow"></text>
+					</view>
+				</view>
+			</picker>
 
 			<view class="weui-cell">
 				<view class="weui-label" name="addressdetail" value="">详细地址</view>
-				<input class="weui-cell__bd" value="{{}}"></input>
+				<input class="weui-cell__bd" value="{{clientInfo.addressdetail}}"></input>
 			</view>
 		</view>
 

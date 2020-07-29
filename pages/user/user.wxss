@@ -29,7 +29,7 @@
 .user-avatar {
   width: 60rpx;
   height: 60rpx;
-  margin: 20rpx;
+  margin: 30rpx;
   border-radius: 50%;
 }
 

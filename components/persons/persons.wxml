@@ -1,0 +1,22 @@
+<view class="persons-container">
+
+	<view class="person-container" wx:for="{{list}}" wx:key="index">
+
+		<view class="person__top-container">
+			<view class="person__top-title"> {{item.name}} </view>
+			<image wx:if="{{item.gender != 0}}" class="person__top-img" src="{{item.gender==1?'../../image/nan.png':'../../image/nv.png'}}"></image>
+			<view class="person__top-tip">{{item.importance?'关键决策人':''}}</view>
+		</view>
+
+		<view class="person-item__cell">
+			<view class="person-item__title">联系方式：</view>
+			<view class="person-item__text">{{item.telephone}}</view>
+		</view>
+		<view class="person-item__cell">
+			<view class="person-item__title">电子邮箱：</view>
+			<view class="person-item__text">{{item.email}}</view>
+		</view>
+		<view class="person__more" bindtap="onSettingClick" data-data="{{item}}">...</view>
+	</view>
+
+</view>

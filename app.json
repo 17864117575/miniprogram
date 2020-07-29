@@ -1,20 +1,21 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/info/clientInfo/clientInfo",
     "pages/login/login",
+    "pages/index/index",
     "pages/overwork/create/create",
     "pages/info/client/client",
+    "pages/overwork/createorder/createorder",
     "pages/overwork/createclient/createclient",
+    "pages/info/clientInfo/clientInfo",
     "pages/logs/logs",
     "pages/user/user",
     "pages/settings/settings",
     "pages/timecard/normal/normal",
     "pages/sample/index/index",
     "pages/info/index/index",
+    "pages/info/payment/payment",
     "pages/info/salary/salary",
     "pages/sample/telephonenumbers/phonenumbers",
-    "pages/info/payment/payment",
     "pages/sample/telephonesetting/telephonesetting"
   ],
   "window": {

@@ -1,0 +1,35 @@
+<view class="container {{ show ? 'product__show':'product__hidden'}}">
+
+	<view class="product__mask" bindtap="onClose"></view>
+	<view class="product__container">
+		<view class="product__title">
+			<text> 关联产品模块</text>
+		</view>
+		<view class="product__title-box">
+			<view></view>
+			<view>产品名称</view>
+			<view>价格</view>
+			<view>产品类别</view>
+			<view>状态</view>
+		</view>
+		<view class="product__list-container">
+			<block wx:if="{{list.length > 0}}">
+				<checkbox-group bindchange="onChoose">
+					<view class="product__title-box" wx:for="{{list}}" wx:key="index">
+						<view>
+							<checkbox checked="{{item.checked}}" value="{{index}}"></checkbox>
+						</view>
+						<view>{{item.name}}</view>
+						<view>{{item.price}}</view>
+						<view>{{item.type<=0?"默认":"类型"}}</view>
+						<view>{{item.state?"已上架":"未上架"}}</view>
+					</view>
+				</checkbox-group>
+			</block>
+			<block wx:else>
+				暂无产品信息~
+			</block>
+		</view>
+		<button type="primary" bindtap="onConfirm">确定</button>
+	</view>
+</view>

@@ -5,7 +5,7 @@
 				<text class="icon-sousuo"></text>
 				<input class="weui-search-bar__text" type="text" placeholder="请输入客户名称"></input>
 			</view>
-			<view class="icon-chuangjian weui-search-bar__create" bindtap="addClientInfo">
+			<view class="icon-add-bold weui-search-bar__create" bindtap="addClientInfo">
 			</view>
 		</view>
 		<htabs tabs="{{tabs}}" binditemChange="handleItemChange"></htabs>
@@ -13,7 +13,7 @@
 	<view class="client-list-container">
 		<view class="client-list-item" wx:for="{{clientList}}" wx:key="key" bindtap="onClientItemClick" data-data="{{item}}">
 			<view style="display:flex;align-items:center;margin-top:20rpx;">
-				<text class="icon-gongsi client-list-item__icon"></text>
+				<text class="client-list-item__icon"></text>
 				<text class="client-list-item__title">{{item.name}}</text>
 				<text class="client-list-item__type">{{'(' + item.type + ')'}}</text>
 			</view>

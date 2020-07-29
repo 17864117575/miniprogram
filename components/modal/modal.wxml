@@ -1,0 +1,31 @@
+<view class="zan-dialog {{ show ? 'zan-dialog--show' : '' }}">
+	<!-- 如果想点击弹窗外不隐藏，取消bindtap点击事件即可 -->
+	<view class="zan-dialog__mask">
+
+		<form bindsubmit="onBtnConfirmClick">
+			<view class="zan-dialog__container">
+				<view class="modal__title">
+					<text>新增</text>
+					<view class="btn-close" bindtap="toggleDialog">关闭</view>
+				</view>
+
+				<view class="weui-cells__title">跟进记录</view>
+				<view class="weui-cells weui-cells_after-title">
+					<view class="textarea-wrp modal__text">
+						<textarea name="remark" placeholder="请填写" auto-height />
+						</view>  
+			</view>            
+			<view  class="weui-cells__title">记录类型</view>
+			<picker range="{{rangeList}}" range-key="" bindchange="onPickerChange" name="type" value="">
+			  <view  class="modal__text textarea-wrp weui-cells weui-cells_after-title">
+          {{index != -1 ? rangeList[index] : '未选择 >' }}
+        </view>
+      </picker>
+      <view class="modal__button-container">
+        <button type="primary" form-type="submit">提交</button>
+      </view>
+		</view>
+    </form>
+
+	</view>
+</view>

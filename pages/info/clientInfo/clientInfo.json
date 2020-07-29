@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "htabs": "../../../components/htabs/htabs"
+    "htabs": "../../../components/htabs/htabs",
+    "persons": "../../../components/persons/persons",
+    "modal": "../../../components/modal/modal"
   }
 }

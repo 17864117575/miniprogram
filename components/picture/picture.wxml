@@ -1,0 +1,7 @@
+<cover-view class="picture__background {{show? 'picture__show' : 'picture__hide'}}">
+	<cover-view class="picture__mask" bindtap="onClose"></cover-view>
+	<cover-view class="picture__container" bindlongtap="onPictureLongClick">
+		<cover-image src="{{path}}" mode="aspectFit"></cover-image>
+		<cover-view>长按图片保存</cover-view>
+	</cover-view>
+</cover-view>

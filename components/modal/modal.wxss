@@ -1,0 +1,70 @@
+@import "../../pages/common/lib/weui.wxss";
+
+.zan-dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.zan-dialog__container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 650rpx;
+  min-height: 500rpx;
+  background: #f8f8f8;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+  z-index: 12;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.zan-dialog--show .zan-dialog__mask {
+  display: block;
+}
+
+.modal__title {
+  text-align: center;
+  margin-top: 30rpx;
+  margin-bottom: 40rpx;
+  position: relative;
+}
+
+.modal__title>text {
+  border-bottom: 4rpx solid #999;
+  padding-bottom: 10rpx;
+}
+
+.textarea-wrp {
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+}
+
+.modal__text {
+  font-size: 26rpx;
+  color: #888;
+}
+
+.modal__button-container {
+  display: flex;
+  margin-top: 30rpx;
+}
+
+button {
+  width: 400rpx;
+}
+
+.btn-close {
+  color: #888;
+  font-size: 28rpx;
+  padding: 0 30rpx 30rpx 50rpx;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

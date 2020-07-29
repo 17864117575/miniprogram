@@ -56,48 +56,61 @@ Page({
 
   // 登录
   onLoginClick: function (e) {
-    wx.showLoading({
-      title: '请稍后~',
-    })
+    // wx.showLoading({
+    //   title: '请稍后~',
+    // })
 
-    let url = util.formatUrl("getapp", {
-      "string": "zft",
-      "number": 123
-    });
-    console.log(url);
-    wx.request({
-      url: url,
-      method: 'POST',
-      success(res) {
-        console.log(res);
-        if (res) {
-          wx.showToast({
-            title: '登录成功~',
-            icon: 'success',
-            duration: '2000',
-            complete: () => {
-              setTimeout(function () {
-                wx.navigateTo({
-                  url: '../index/index.wxml',
-                })
-              }, 2000)
-            }
-          })
-        } else {
-          wx.showModal({
-            title: '提示',
-            content: '用户名或密码有误',
-            showCancel: false
-          })
-        }
-      },
-      fail(e) {
-        console.log(e)
-      },
-      complete: () => {
-        wx.hideLoading();
-      }
-    })
+    // let url = util.formatUrl("getapp", {
+    //   "string": "zft",
+    //   "number": 123
+    // });
+    // console.log(url);
+    // wx.request({
+    //   url: url,
+    //   method: 'POST',
+    //   success(res) {
+    //     console.log(res);
+    //     if (res) {
+    //       wx.showToast({
+    //         title: '登录成功~',
+    //         icon: 'success',
+    //         duration: '2000',
+    //         complete: () => {
+    //           setTimeout(function () {
+    //             wx.navigateTo({
+    //               url: '../index/index.wxml',
+    //             })
+    //           }, 2000)
+    //         }
+    //       })
+    //     } else {
+    //       wx.showModal({
+    //         title: '提示',
+    //         content: '用户名或密码有误',
+    //         showCancel: false
+    //       })
+    //     }
+    //   },
+    //   fail(e) {
+    //     console.log(e)
+    //   },
+    //   complete: () => {
+    //     wx.hideLoading();
+    //   }
+    // })
+
+    // todo
+    if (this.data.username == "123" && this.data.password == "123") {
+      wx.switchTab({
+        url: '../index/index',
+      })
+    } else {
+      wx.showModal({
+        title: '提示',
+        content: '用户名或密码有误',
+        showCancel: false
+      })
+    }
 
     this.setRemeberUserInfo(this.data.isSelect);
   },

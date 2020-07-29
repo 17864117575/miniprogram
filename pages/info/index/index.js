@@ -3,7 +3,7 @@ Page({
   data: {
     grids: [{
         name: '客户',
-        path: "client",
+        path: "../client/client",
         icon: "company.png"
       },
       {
@@ -17,8 +17,8 @@ Page({
         icon: "sea.png"
       },
       {
-        name: '联系人',
-        path: "salary",
+        name: '电话簿',
+        path: "../../sample/telephonenumbers/phonenumbers",
         icon: "person.png"
       },
       {

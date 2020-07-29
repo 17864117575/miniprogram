@@ -151,8 +151,19 @@ Page({
 
   // 登录界面
   onBtnExitClick: function () {
-    // wx.navigateTo({
-    //   url: 'url',
-    // })
+    wx.showModal({
+      title: '提示',
+      content: '确定要登出账户吗？',
+      cancelColor: "red",
+      success(res) {
+        if (res.confirm) {
+          wx.redirectTo({
+            url: '../login/login',
+          });
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   }
 })

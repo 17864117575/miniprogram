@@ -1,0 +1,106 @@
+<view class="container">
+
+	<form bindsubmit="onOrderSubmit">
+		<view class="weui-cells weui-cells_after-title">
+
+			<view class="weui-cell">
+				<view class="weui-label" value="">
+					订单编号
+					<p style="color:red;">*</p>
+				</view>
+				<input class="weui-cell__bd" name="orderId" value="{{orderId}}"></input>
+			</view>
+
+			<view class="weui-cell">
+				<view class="weui-label">
+					客户名称
+					<p style="color:red;">*</p>
+				</view>
+				<picker style="width: 450rpx;" range="{{clientList}}" name="client" value="" bindchange="onClientChange">
+					<view class="weui-cell__bd">
+						{{pickerIndex < 0?"请选择":(clientList[pickerIndex])}}
+						<text class="icon-arrow-right item-arrow"></text>
+					</view>
+				</picker>
+			</view>
+
+			<view class="weui-cell">
+				<view class="weui-label" value="">
+					订单名称
+					<p style="color:red;">*</p>
+				</view>
+				<input class="weui-cell__bd" name="ordername" value=""></input>
+			</view>
+
+			<view class="weui-cell">
+				<view class="weui-label" value="">订单金额（元）</view>
+				<input class="weui-cell__bd" name="amount" value=""></input>
+			</view>
+
+			<view class="weui-cell">
+				<view class="weui-label"> 下单时间 </view>
+				<picker style="width: 450rpx;" mode="date" name="date" value="{{orderDate}}" bindchange="onDateChange">
+					<view class="weui-cell__bd">
+						{{orderDate}}
+						<text class="icon-arrow-right item-arrow"></text>
+					</view>
+				</picker>
+			</view>
+
+			<view class="weui-cell">
+				<view class="weui-label">
+					出货凭证
+					<p style="color:red;">*</p>
+				</view>
+				<view class="weui-cell__bd" style="width: 450rpx;" bindtap="onChooseImg">
+					<block wx:if="{{ orderImgPath != '' }}">
+						<image class="weui-cell__img" src="{{orderImgPath}}"></image>
+					</block>
+					<block wx:else>
+						请选择
+					</block>
+					<text class="icon-arrow-right item-arrow"></text>
+				</view>
+			</view>
+
+		</view>
+
+		<view class="weui-cells__title">备注</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="textarea-wrp">
+				<textarea name="remark" value="" auto-height />
+				</view>  
+	  </view>
+		
+    <view class="weui-cells__title" style="justify-content: space-between;display: flex;align-items:center;">
+      产品 <view class="weui__form-btn" bindtap="onChooseProduction">+添加</view>
+    </view>
+    <product list="{{showList}}" show="{{show}}" bindonClose="handleOnClose" bindonConfirm="handleOnConfirm"></product>
+		<view class="weui-cells weui-cells_after-title weui__form-title">
+      <view class="weui__form-title-type weui__form-text">产品名称</view>
+      <view class="weui__form-title-type">售价</view>
+      <view class="weui__form-title-type">数量</view>
+      <view class="weui__form-title-type">{{'折扣%'}}</view>
+      <view class="weui__form-title-type">合计</view>
+      <view class="weui__form-title-type">操作</view>
+	  </view>
+    <view class="weui-cells weui-cells_after-title">
+      <block wx:if="{{ productList.length <= 0 }}">
+       <view style="color:#666;text-align:center;padding:10rpx;"> 暂无数据~ </view> 
+      </block>
+      <block wx:else>
+        <view class="weui-cells weui-cells_after-title weui__form-title" wx:for="{{productList}}" wx:key="index">
+          <view class="weui__form-title-type weui__form-text">{{item.name}}</view>
+          <input class="weui__form-title-type weui-cell__input" type="digit" value="{{item.price}}" bindinput="onNumberPriceInput" data-idx="{{index}}"></input>
+          <input  class="weui__form-title-type weui-cell__input" type="number" value="{{item.count}}" bindinput="onNumberCountInput" data-idx="{{index}}"></input>
+          <input  class="weui__form-title-type weui-cell__input" type="digit" value="{{item.discount}}" bindinput="onNumberDiscountnput" data-idx="{{index}}"></input>
+          <view class="weui__form-title-type">{{item.total}}</view>
+          <view class="weui__form-title-type weui__form-title-delete" data-idx="{{index}}" bindtap="onDeleteItem">删除</view>
+        </view>
+      </block>
+    </view>
+
+    <button type="primary" form-type="submit">提交审核</button>
+</form>
+
+</view>

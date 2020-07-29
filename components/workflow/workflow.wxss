@@ -1,0 +1,76 @@
+.weui-form-preview__item {
+  width: 100%;
+  display: flex;
+}
+
+/* 带状图形容器 */
+.weui-form-graph__bar-container {
+  width: 20%;
+  position: relative;
+}
+
+/* 线 */
+.weui-form-graph__bar-line {
+  position: absolute;
+  width: 10rpx;
+  height: 100%;
+  background-color: #eee;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.weui-form-graph__bar-dot-unselect,
+.weui-form-graph__bar-dot-select {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+}
+
+
+/* 未选中点 */
+.weui-form-graph__bar-dot-unselect {
+  background: #eee;
+}
+
+/* 选中点 */
+.weui-form-graph__bar-dot-select {
+  background: #eee;
+}
+
+.weui-form-graph__bar-dot-select::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #006DF0;
+}
+
+.weui-form-info__container {
+  width: 100%;
+  margin: 20rpx 20rpx 20rpx 0;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.weui-form-info__title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weui-form-info__title-name {
+  color: black;
+  font-size: 30rpx;
+}
+
+.weui-form-info__title-date {}
+
+.weui-form-info__description {}

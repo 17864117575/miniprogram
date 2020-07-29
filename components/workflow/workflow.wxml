@@ -1,0 +1,13 @@
+<view class="weui-form-preview__item" wx:for="{{list}}" wx:key="index">
+	<view class="weui-form-graph__bar-container">
+		<view class="weui-form-graph__bar-line"></view>
+		<view class="{{(index==list.length-1)? 'weui-form-graph__bar-dot-select':'weui-form-graph__bar-dot-unselect'}}"></view>
+	</view>
+	<view class="weui-form-info__container">
+		<view class="weui-form-info__title">
+			<view class="weui-form-info__title-name">{{item.name}}</view>
+			<view class="weui-form-info__title-date">{{item.timestamp}}</view>
+		</view>
+		<view class="weui-form-info__description">{{item.msg}}</view>
+	</view>
+</view>

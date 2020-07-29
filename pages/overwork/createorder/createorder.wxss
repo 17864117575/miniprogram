@@ -1,0 +1,104 @@
+@import "../../common/lib/weui.wxss";
+
+.weui-cell {
+  padding: 10px 30px 10px 20px;
+}
+
+.weui-cells {
+  position: unset;
+  border-bottom: 1rpx solid #D9D9D9;
+  font-size: 30rpx;
+}
+
+.weui-cell__bd radio {
+  margin-left: 30rpx;
+}
+
+.item-arrow {
+  position: absolute;
+  right: 20rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.weui-cell__bd {
+  color: #999;
+  text-align: right;
+}
+
+textarea {
+  padding: 20rpx;
+}
+
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+}
+
+.weui-cell__img {
+  width: 70rpx;
+  height: 70rpx;
+  position: absolute;
+  right: 50rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.weui__form-title {
+  display: flex;
+  padding: 10rpx 0;
+}
+
+.weui__form-btn {
+  background: #006DF0;
+  border-radius: 10rpx;
+  padding: 10rpx 40rpx;
+  color: white;
+  letter-spacing: 2rpx;
+  opacity: 1;
+}
+
+.weui__form-btn:hover {
+  opacity: .7;
+}
+
+.weui__form-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.weui__form-title-text,
+.weui__form-title-type {
+  width: 20%;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.weui__form-title-text {
+  color: #666;
+  margin: 10rpx 0;
+  padding: 20rpx 0;
+}
+
+.weui__form-title-type {
+  color: #999;
+}
+
+.weui-cell__input {
+  border: 2rpx solid #eee;
+  margin: 0 5px;
+  border-radius: 5rpx;
+}
+
+button {
+  margin: 100rpx 40rpx 0;
+}
+
+.weui__form-title-delete {}
+
+.weui__form-title-delete:hover {
+  color: red;
+}
