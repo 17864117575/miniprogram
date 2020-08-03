@@ -40,23 +40,7 @@ Page({
       name: "订单信息",
       active: false
     }],
-    personList: [{
-      name: '王先生',
-      gender: 1,
-      telephone: 13754435050,
-      importance: true, //是否是关键决策人
-      occuption: "技术总监", //职位
-      email: "zhoufeitian@yahoo.com",
-      address: "山东省/济南市/历下区"
-    }, {
-      name: '李三',
-      gender: 1,
-      telephone: 13754435050,
-      importance: true, //是否是关键决策人
-      occuption: "技术总监", //职位
-      email: "zhoufeitian@yahoo.com",
-      address: "山东省/济南市/历下区"
-    }], //联系人列表
+    personList: [], //联系人列表
     taskList: [{
       belongId: 10001,
       name: "小小小",
@@ -99,7 +83,28 @@ Page({
       state: 1
     }], // 跟进记录
     totalMoney: 0, //累计订单销售额
-    typeList: ["打电话", "发邮件", "发短信", "见面拜访", "活动"]
+    typeList: ["打电话", "发邮件", "发短信", "见面拜访", "活动"],
+    memeberList: [{
+        id: 0,
+        name: "员工A"
+      },
+      {
+        id: 1,
+        name: "员工B"
+      },
+      {
+        id: 2,
+        name: "员工C"
+      },
+      {
+        id: 3,
+        name: "员工D"
+      },
+      {
+        id: 4,
+        name: "员工E"
+      },
+    ]
   },
 
   onLoad: function (options) {
@@ -113,6 +118,26 @@ Page({
         title: clientInfo.name ? clientInfo.name : ''
       })
     }
+
+    this.setData({
+      personList: [{
+        name: '王先生',
+        gender: 1,
+        telephone: 13754435050,
+        occuption: "技术总监", //职位
+        email: "zhoufeitian@yahoo.com",
+        address: "山东省/济南市/历下区",
+        param: "关键决策人", //是否是关键决策人
+      }, {
+        name: '周五',
+        gender: 1,
+        telephone: 13754435050,
+        occuption: "技术总监", //职位
+        email: "zhoufeitian@yahoo.com",
+        address: "山东省/济南市/历下区",
+        param: "", //是否是关键决策人
+      }]
+    })
   },
 
   // 保留分享功能
@@ -151,6 +176,123 @@ Page({
         }
         break;
     }
+  },
+
+  onSelectChange: function (e) {
+    let member = this.data.memeberList[e.detail.value].name;
+    var self = this;
+    wx.showModal({
+      title: '提示',
+      content: '确定要将客户分配给' + member + "?",
+      cancelColor: 'red',
+      success(res) {
+        if (res.confirm) {
+          self.setData({
+            "clientInfo.principle": member
+          });
+
+          // wx.showLoading({
+          //   title: '请稍后~',
+          // });
+          // 请求 分配负责人
+          // wx.request({
+          //   url: 'url',
+          //   success(res) {
+          //     wx.hideLoading();
+          //     console.log(res)
+          // wx.showToast({
+          //   title: '分配成功~',
+          // })
+          //   },
+          //   fail(e) {
+          //   }
+          // })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  onBtnApplyClick: function (e) {
+    let {
+      data
+    } = e.currentTarget.dataset;
+    wx.showModal({
+      title: "提示",
+      content: "确定要申请领取" + data.name + "？",
+      success: () => {
+        // wx.showLoading({
+        //   title: '请稍后~',
+        // });
+
+        // wx.request({
+        //   url: 'url',
+        //   success: () => {
+        //     wx.hideLoading();
+        //     wx.showToast({
+        //       title: '申请领取成功~',
+        //       mask: true
+        //     }, 2000);
+        //     setTimeout(() => {
+        //       wx.navigateBack({
+        //         delta: 1,
+        //       })
+        //     }, 2000)
+        //   }
+        // })
+      },
+      fail: () => {}
+    })
+  },
+
+  onBtnDeleteClick: function (e) {
+    let {
+      data
+    } = e.currentTarget.dataset;
+    wx.showModal({
+      title: "提示",
+      content: "确定要删除" + data.name + "？",
+      cancelColor: "red",
+      success: () => {
+        // wx.showLoading({
+        //   title: '请稍后~',
+        // });
+
+        // wx.request({
+        //   url: 'url',
+        //   success: () => {
+        //     wx.hideLoading();
+        //     wx.showToast({
+        //       title: '删除成功~',
+        //       mask: true
+        //     }, 2000);
+        //     setTimeout(() => {
+        //       wx.navigateBack({
+        //         delta: 1,
+        //       })
+        //     }, 2000)
+        //   }
+        // })
+      },
+      fail: () => {}
+    })
+  },
+
+  // 页面卸载时用到 ， 针对删除用户刷新上级页面
+  onUnload: function () {
+    console.log("页面卸载")
+
+    let pages = getCurrentPages();
+    let beforePage = pages[pages.length - 2];
+    wx.switchTab({
+      url: '/' + beforePage.route,
+      success: function () {
+        if (beforePage.route == '../client/client') {
+          beforePage.syncPageData()
+        }
+      }
+    })
   },
 
   onBtnSetClick: function () {

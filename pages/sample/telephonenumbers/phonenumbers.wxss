@@ -1,5 +1,36 @@
+.weui-search-container {
+  margin: 30rpx;
+}
+
+.weui-search-bar__form {
+  display: flex;
+  position: relative;
+  border-radius: 5px;
+  background: #eee;
+  border: 1rpx solid #e6e6ea;
+  height: 80rpx;
+  box-shadow: 0rpx 0rpx 10rpx #e6e6ea inset;
+  width: 100%;
+  align-items: center;
+}
+
+.weui-search-bar__text {
+  width: 100%;
+  margin: 10rpx;
+}
+
+.weui-search-bar__form>text {
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 50rpx;
+  text-align: center;
+  color: #999;
+}
+
 .list-container {
-  padding: 0
+  padding: 0;
+  height: 90vh;
+  overflow: scroll;
 }
 
 .list-item {

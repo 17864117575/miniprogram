@@ -1,0 +1,59 @@
+@import '../../common/lib/weui.wxss';
+
+textarea {
+  width: 700rpx;
+  padding: 25rpx 0;
+}
+
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+}
+
+.weui-input__btn-add {
+  color: #006DF0;
+  font-size: 28rpx;
+  padding: 20rpx;
+}
+
+.weui-cell__container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.weui__member {
+  display: block;
+  float: left;
+  padding: 10rpx;
+  font-size: 28rpx;
+  background: #eee;
+  color: #999;
+  border-radius: 10rpx;
+  margin: 10rpx 20rpx;
+}
+
+.pictures__container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 20rpx;
+}
+
+.weui-cell__picture {
+  height: 100rpx;
+  width: 100rpx;
+  background: #ffffff;
+  border: 2rpx solid #eee;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin: 10rpx;
+  color: #999;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 2rem;
+}
+
+.weui-cell__picture:hover {
+  opacity: 0.7;
+}

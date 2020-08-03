@@ -1,0 +1,45 @@
+<view class="container">
+	<htabs tabs="{{tablist}}" binditemChange="handleItemChange"></htabs>
+
+	<form bindsubmit="onSubmit">
+		<view class="weui__content">
+			<view class="weui-cells__title">{{tablist[index].now}}</view>
+			<view class="weui-cells weui-cells_after-title">
+				<view class="textarea-wrp">
+					<textarea name="now" value="" auto-height />
+					</view>  
+		</view>
+		<view class="weui-cells__title">{{tablist[index].next}}</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="textarea-wrp">
+				<textarea name="next" value="" auto-height />
+				</view>  
+		</view>
+		<view class="weui-cells__title">遇到的问题</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="textarea-wrp">
+				<textarea name="problem" value="" auto-height />
+				</view>  
+		</view>
+
+    <view class="weui-cells__title">发送给谁</view>
+		<view class="weui-cells weui-cells_after-title weui-cells__member-content">
+		  <view class="weui-cells__member" wx:for="{{memberInfo.showList}}" wx:key="key" data-data="{{item}}" bindtap="deleteMember">
+        {{item.name + ' x'}}
+      </view>
+      <picker range="{{memberInfo.remainList}}" range-key="name" bindchange="addMember">
+        <view class="weui-cells__add">+添加员工</view>
+      </picker>
+		</view>
+    
+		<view class="weui-cells__title">添加图片</view>
+    <view class="pictures__container">
+      <view class=".weui-cell__picture" bindtap="onAddPicture">+</view>
+      <block wx:for="{{picturesList}}" wx:key="key">
+        <pictures src="{{item}}" bindonDelete="handleOnDelete"></pictures>
+      </block>
+    </view>
+    <button class="submit" type="primary" form-type="submit">提交日志</button>
+  </view>
+  </form>
+</view>

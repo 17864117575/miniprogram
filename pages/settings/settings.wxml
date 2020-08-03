@@ -19,7 +19,7 @@
 		<view class="weui-cells__title">{{UI[index].accountMg}}</view>
 		<navigator wx:if="{{user == null}}" url="../user/user" class="navigator user">{{UI[index].bind}}</navigator>
 		<view class="weui-cells__title">电话簿</view>
-		<navigator wx:if="{{user == null}}" url="../sample/telephonenumbers/phonenumbers" class="navigator user">查看联系人</navigator>
+		<navigator wx:if="{{user == null}}" url="../sample/telephonenumbers/phonenumbers" class="navigator user">查看电话簿</navigator>
 
 		<view class="btn-area" id="buttonContainer">
 			<button bindtap="onBtnExitClick" type="warn">{{UI[index].save}}</button>

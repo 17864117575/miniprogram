@@ -44,6 +44,13 @@ function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
+// 获取 x天前/后 的日期
+function getDateByDays(days = 0) {
+  var time = (new Date).getTime() + ((days) * 24 * 60 * 60 * 1000);
+  var yesterday = new Date(time);
+  return yesterday.getFullYear() + "-" + (yesterday.getMonth() > 9 ? (yesterday.getMonth() + 1) : "0" + (yesterday.getMonth() + 1)) + "-" + (yesterday.getDate() > 9 ? (yesterday.getDate()) : "0" + (yesterday.getDate()));
+}
+
 // 返回一个封装好的路径
 function formatUrl(path, param) {
   let mainUrl = app.globalData.serverUrl + "/" + path;
@@ -54,16 +61,36 @@ function formatUrl(path, param) {
     return mainUrl;
 
   let str = "";
+  let index = 0;
   for (let key in param) {
-    str += "&" + key + "=" + param[key]
+    if (index == 0) {
+      str += key + "=" + param[key]
+    } else {
+      str += "&" + key + "=" + param[key]
+    }
+    index++;
   }
-  let wxId = "kIH0BGXlHjEa-gzG" //todo: 随便弄的这个值是判断是否还连接着
-  return mainUrl + "?" + "wxId=" + wxId + str;
+  return mainUrl + "?" + str;
+}
+
+function formatParam(param) {
+  let str = "";
+  let idx = 0;
+  for (let key in param) {
+    if (idx == 0) {
+      str += "?" + key + "=" + param[key];
+    } else {
+      str += key + "=" + param[key];
+    }
+  }
+  return str;
 }
 
 module.exports = {
   formatTime: formatTime,
   formatDate: formatDateForPicker,
   currentTime: currentTime,
-  formatUrl: formatUrl
+  getDateByDays: getDateByDays,
+  formatUrl: formatUrl,
+  formatParam: formatParam
 }

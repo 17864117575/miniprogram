@@ -5,7 +5,7 @@
 		<view class="person__top-container">
 			<view class="person__top-title"> {{item.name}} </view>
 			<image wx:if="{{item.gender != 0}}" class="person__top-img" src="{{item.gender==1?'../../image/nan.png':'../../image/nv.png'}}"></image>
-			<view class="person__top-tip">{{item.importance?'关键决策人':''}}</view>
+			<view class="person__top-tip">{{item.param}}</view>
 		</view>
 
 		<view class="person-item__cell">

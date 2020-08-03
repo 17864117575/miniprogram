@@ -60,6 +60,7 @@ App({
       language: null,
       employeeId: null
     },
+    onlyone: false, //是否只是显示一次
     serverUrl: "https://192.168.1.1",
     userInfo: null,
     // 阿里省市请求

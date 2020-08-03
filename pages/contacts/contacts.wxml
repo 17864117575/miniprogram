@@ -1,0 +1,7 @@
+<view class="container">
+	<view class="client-info-container">
+		<persons list="{{personList}}"></persons>
+	</view>
+	<view class="empty-tip" wx:if="{{personList.length <= 0}}">没有更多了</view>
+	<view class="btn-add" bindtap="onBtnAddClientClick"></view>
+</view>

@@ -1,0 +1,38 @@
+	<view class="container">
+		<view class="client-info-container">
+			<view class="client-info-top">
+				<text class="icon-chart-pie client-info-pie"></text>
+				<view>
+					<view class="client-info__order-title">
+						累计销售额：<p style="color:red;"> {{totalMoney || 0}}元</p>
+					</view>
+					<view class="client-info__order-text">
+						累计订单：{{orderList.length || 0}}
+					</view>
+				</view>
+			</view>
+			<view class="order-container-cell" wx:for="{{orderList}}" wx:key="orderId">
+				<view class="order-title-container__top">
+					<view class="order-title-container">
+						{{item.ordername}}
+					</view>
+					<view class="order-state" wx:if="{{item.state==0}}" style="color:red;">未通过</view>
+					<view class="order-state" wx:elif="{{item.state==1}}" style="color:green;">通过审核</view>
+					<view class="order-state" wx:else>审核中</view>
+				</view>
+				<view class="weui-cells__title">
+					订单编号：
+					{{item.orderid}}
+				</view>
+				<view class="weui-cells__tips">
+					创建日期： {{item.date}}
+				</view>
+				<view class="weui-cells__tips">
+					负责人： {{item.member}}
+				</view>
+				<view class="btn__more" bindtap="onMoreClick">...</view>
+			</view>
+		</view>
+		<view class="empty-tip" wx:if="{{orderList.length <= 0}}">没有更多了</view>
+		<view class="btn-add" bindtap="onBtnAddOrderClick"></view>
+	</view>

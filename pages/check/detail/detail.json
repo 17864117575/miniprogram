@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "workflow": "../../../components/workflow/workflow"
+  },
+  "navigationBarTitleText": "审批详情"
+}

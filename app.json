@@ -1,13 +1,14 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/info/kpi/main/main",
+    "pages/logs/logs",
     "pages/index/index",
     "pages/overwork/create/create",
     "pages/info/client/client",
     "pages/overwork/createorder/createorder",
     "pages/overwork/createclient/createclient",
     "pages/info/clientInfo/clientInfo",
-    "pages/logs/logs",
     "pages/user/user",
     "pages/settings/settings",
     "pages/timecard/normal/normal",
@@ -15,8 +16,17 @@
     "pages/info/index/index",
     "pages/info/payment/payment",
     "pages/info/salary/salary",
+    "pages/daily/create/create",
     "pages/sample/telephonenumbers/phonenumbers",
-    "pages/sample/telephonesetting/telephonesetting"
+    "pages/orders/orders",
+    "pages/sample/notice/notice",
+    "pages/sample/createnotice/createnotice",
+    "pages/contacts/contacts",
+    "pages/check/index/index",
+    "pages/check/create/create",
+    "pages/daily/index/index",
+    "pages/info/kpi/linechart/linechart",
+    "pages/check/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

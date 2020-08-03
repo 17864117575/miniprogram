@@ -1,16 +1,25 @@
-<view class="container list-container">
-	<view class="list-item" wx:for="{{contactList}}">
-		<view class="right">
-			<view class="title">
-				<view class="title-name">
-					<image src="{{item.gender == '1'? '../../../image/nan.png':'../../../image/nv.png' }}"></image>
-					<view class="name">{{item.name}}</view>
-					<view class="company">{{'（'+ item.company +'）'}}</view>
-				</view>
-				<view class="phone">{{item.phone}}</view>
-			</view>
-			<!-- <view class="time">{{item.time}}</view> -->
+<view class="container ">
+	<view class="weui-search-container">
+		<view class="weui-search-bar__form">
+			<text class="icon-search"></text>
+			<input class="weui-search-bar__text" type="text" placeholder="请输入姓名/手机号"></input>
 		</view>
-		<button class="button" type="primary" bindtap="onMakingCall" data-phonenumber="{{item.phone}}">拨号</button>
+	</view>
+
+	<view class="list-container">
+		<view class="list-item" wx:for="{{contactList}}">
+			<view class="right">
+				<view class="title">
+					<view class="title-name">
+						<image src="{{item.gender == '1'? '../../../image/nan.png':'../../../image/nv.png' }}"></image>
+						<view class="name">{{item.name}}</view>
+						<view class="company">{{'（'+ item.company +'）'}}</view>
+					</view>
+					<view class="phone">{{item.phone}}</view>
+				</view>
+				<!-- <view class="time">{{item.time}}</view> -->
+			</view>
+			<button class="button" type="primary" bindtap="onMakingCall" data-phonenumber="{{item.phone}}">拨号</button>
+		</view>
 	</view>
 </view>

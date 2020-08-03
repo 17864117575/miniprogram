@@ -1,0 +1,99 @@
+@import '../common/lib/weui.wxss';
+
+.client-info-container {
+  margin: 20rpx;
+  border-bottom: 2rpx solid #D9D9D9;
+}
+
+.client-info-pie {
+  font-size: 2.5rem;
+  line-height: 120rpx;
+  height: 120rpx;
+  margin: 0 50rpx;
+  color: #666;
+}
+
+.title-telephone__line {
+  text-decoration: underline;
+  color: #006DF0;
+}
+
+.order-title-container__top {
+  display: flex;
+  margin: 20rpx 30rpx 0;
+  justify-content: space-between;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.client-info-top {
+  display: flex;
+  background: white;
+  border: 2rpx solid #ddd;
+}
+
+.client-info__order-title {
+  font-size: 1.2rem;
+  margin-top: 10rpx;
+}
+
+.client-info__order-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.order-container-cell {
+  border: 2rpx solid #ddd;
+  margin: 20rpx 0;
+  position: relative;
+  background: white;
+}
+
+.btn-add {
+  position: fixed;
+  bottom: 100rpx;
+  right: 50rpx;
+  background: #006DF0;
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  box-shadow: 0rpx 10rpx 30rpx #666;
+  transition: .5s;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.btn-add::after {
+  content: "+";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+  font-size: 3rem;
+}
+
+.btn-add:hover {
+  opacity: .7;
+  transform: scale(0.95);
+}
+
+.empty-tip {
+  text-align: center;
+  font-size: 30rpx;
+  color: #999;
+}
+
+.btn__more {
+  text-align: center;
+  background: #eee;
+  height: 60rpx;
+  font-size: 2rem;
+  line-height: 30rpx;
+  color: #006DF0;
+  opacity: 1;
+}
+
+.btn__more:hover {
+  opacity: .7;
+}

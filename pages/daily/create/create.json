@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "htabs": "../../../components/htabs/htabs",
+    "pictures": "../../../components/pictures/pictures"
+  },
+  "navigationBarTitleText": "创建日志"
+}

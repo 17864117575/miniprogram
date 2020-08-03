@@ -2,18 +2,18 @@
 	<view class="weui-serch-bar__container">
 		<view style="display:flex; width: 100%;justify-content: space-around;">
 			<view class="weui-search-bar__form">
-				<text class="icon-sousuo"></text>
-				<input class="weui-search-bar__text" type="text" placeholder="请输入客户名称"></input>
+				<text class="icon-search"></text>
+				<input class="weui-search-bar__text" type="text" placeholder="请输入客户名称/电话/手机号"></input>
 			</view>
-			<view class="icon-add-bold weui-search-bar__create" bindtap="addClientInfo">
+			<view wx:if="{{!sea}}" class="icon-add-bold weui-search-bar__create" bindtap="addClientInfo">
 			</view>
 		</view>
 		<htabs tabs="{{tabs}}" binditemChange="handleItemChange"></htabs>
 	</view>
 	<view class="client-list-container">
-		<view class="client-list-item" wx:for="{{clientList}}" wx:key="key" bindtap="onClientItemClick" data-data="{{item}}">
+		<view class="client-list-item" wx:for="{{showList}}" wx:key="key" bindtouchstart="handleTouchStart" bindtouchend="handleTouchEnd" bindlongpress="handleLongPress" bindtap="handleClick" data-data="{{item}}">
 			<view style="display:flex;align-items:center;margin-top:20rpx;">
-				<text class="client-list-item__icon"></text>
+				<text class="client-list-item__icon icon-explain"></text>
 				<text class="client-list-item__title">{{item.name}}</text>
 				<text class="client-list-item__type">{{'(' + item.type + ')'}}</text>
 			</view>

@@ -2,53 +2,80 @@
 	<htabs tabs="{{tabs}}" binditemChange="handleItemChange"></htabs>
 	<view class="client-info-cells weui-cells_after-title">
 		<block wx:if="{{index==0}}">
-			<view class="client-info-container">
-				<view class="client-info-cell">
-					<view class="weui-label">客户名称： </view>
-					<view class="weui-cell__bd">{{clientInfo?clientInfo.name:'客户姓名'}}</view>
+			<view style="background:white;">
+				<view class="client-info-container">
+					<view class="client-info-cell">
+						<view class="weui-label">客户名称： </view>
+						<view class="weui-cell__bd">{{clientInfo?clientInfo.name:'客户姓名'}}</view>
+					</view>
+					<view class="client-info-cell">
+						<view class="weui-label">成交状态： </view>
+						<block wx:if="{{clientInfo != null && clientInfo.deal}}">
+							<view class="weui-cell__bd" style="color:green;">已成交</view>
+						</block>
+						<block wx:else>
+							<view class="weui-cell__bd" style="color:red;">未成交</view>
+						</block>
+					</view>
+					<view class="client-info-cell">
+						<view class="weui-label">客户级别： </view>
+						<view class="weui-cell__bd">{{clientInfo?clientInfo.importance?'重点客户':'普通客户':'普通客户'}}</view>
+					</view>
+					<view class="client-info-cell">
+						<view class="weui-label">联系方式： </view>
+						<view class="weui-cell__bd title-telephone__line">{{clientInfo?clientInfo.telephone:'联系方式'}}</view>
+					</view>
 				</view>
-				<view class="client-info-cell">
-					<view class="weui-label">成交状态： </view>
-					<block wx:if="{{clientInfo != null && clientInfo.deal}}">
-						<view class="weui-cell__bd" style="color:green;">已成交</view>
-					</block>
-					<block wx:else>
-						<view class="weui-cell__bd" style="color:red;">未成交</view>
-					</block>
+				<view class="client-info-container">
+					<view class="client-info-cell">
+						<view class="weui-label">来源： </view>
+						<view class="weui-cell__bd">{{clientInfo?clientInfo.rigion:'来源'}}</view>
+					</view>
+					<view class="client-info-cell">
+						<view class="weui-label">行业： </view>
+						<view class="weui-cell__bd">{{clientInfo?clientInfo.type:'行业'}}</view>
+					</view>
+					<view class="client-info-cell">
+						<view class="weui-label">城市： </view>
+						<view class="weui-cell__bd">{{clientInfo?clientInfo.addresss:'地址'}}</view>
+					</view>
+					<view class="client-info-cell">
+						<view class="weui-label">详细地址： </view>
+						<view class="weui-cell__bd">{{clientInfo?clientInfo.addressdetail:'详细地址'}}</view>
+					</view>
+					<view class="client-info-cell">
+						<view class="weui-label">备注： </view>
+						<view class="weui-cell__bd">{{clientInfo?clientInfo.remark:'备注'}}</view>
+					</view>
 				</view>
-				<view class="client-info-cell">
-					<view class="weui-label">客户级别： </view>
-					<view class="weui-cell__bd">{{clientInfo?clientInfo.importance?'重点客户':'普通客户':'普通客户'}}</view>
-				</view>
-				<view class="client-info-cell">
-					<view class="weui-label">联系方式： </view>
-					<view class="weui-cell__bd title-telephone__line">{{clientInfo?clientInfo.telephone:'联系方式'}}</view>
-				</view>
-			</view>
-			<view class="client-info-container">
-				<view class="client-info-cell">
-					<view class="weui-label">来源： </view>
-					<view class="weui-cell__bd">{{clientInfo?clientInfo.rigion:'来源'}}</view>
-				</view>
-				<view class="client-info-cell">
-					<view class="weui-label">行业： </view>
-					<view class="weui-cell__bd">{{clientInfo?clientInfo.type:'行业'}}</view>
-				</view>
-				<view class="client-info-cell">
-					<view class="weui-label">城市： </view>
-					<view class="weui-cell__bd">{{clientInfo?clientInfo.addresss:'地址'}}</view>
-				</view>
-				<view class="client-info-cell">
-					<view class="weui-label">详细地址： </view>
-					<view class="weui-cell__bd">{{clientInfo?clientInfo.addressdetail:'详细地址'}}</view>
-				</view>
-				<view class="client-info-cell">
-					<view class="weui-label">备注： </view>
-					<view class="weui-cell__bd">{{clientInfo?clientInfo.remark:'备注'}}</view>
+				<view class="client-info-container">
+					<view class="client-info-cell">
+						<view class="weui-label">负责人： </view>
+
+						<block wx:if="{{ clientInfo.sea && true }}">
+							<!-- 公海且是负责人 -->
+							<picker style="width: 500rpx;" range="{{memeberList}}" range-key="name" bindchange="onSelectChange">
+								<view class="weui-cell__bd">{{clientInfo.principle ? clientInfo.principle : '未分配'}}</view>
+								<view class="icon-arrow-right weui-cell__bd-arrow"></view>
+							</picker>
+						</block>
+						<block wx:else>
+							<view class="weui-cell__bd">{{clientInfo ? clientInfo.principle : '负责人'}}</view>
+						</block>
+
+					</view>
 				</view>
 			</view>
 			<view class="client-info-bottom">
-				<button bindtap="onBtnSetClick">编辑信息</button>
+				<!-- <button class="btn__color-white" bindtap="onBtnSetClick">编辑信息</button> -->
+				<block wx:if="{{clientInfo.sea}}">
+					<button type="primary" bindtap="onBtnApplyClick" data-data="{{clientInfo}}">申请领取</button>
+				</block>
+
+				<block wx:if="{{true}}">
+					<!-- 如果是管理员 -->
+					<button type="warn" bindtap="onBtnDeleteClick" data-data="{{clientInfo}}">删除客户</button>
+				</block>
 			</view>
 		</block>
 
@@ -61,7 +88,7 @@
 		</block>
 
 		<block wx:elif="{{index==2}}">
-			<view class="client-info-container">
+			<view style="background:white;" class="client-info-container">
 				<view class="client-task-cell" wx:for="{{taskList}}" wx:key="index">
 					<view class="client-info-cell__top">
 						<view class="client-info-cell__title">{{item.name}}</view>
@@ -74,7 +101,7 @@
 					</view>
 				</view>
 			</view>
-			
+
 			<modal show="{{show}}" rangeList="{{typeList}}" bindcloseClick="handleCloseClick" bindconfirmClick="handleConfirmClick"></modal>
 
 			<view class="empty-tip" wx:if="{{taskList.length <= 0}}">没有更多了</view>

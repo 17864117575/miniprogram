@@ -1,0 +1,83 @@
+.container {
+  justify-content: unset;
+}
+
+.weui__item-cintainer {
+  margin: 10rpx 40rpx;
+  border: 2rpx solid #eee;
+}
+
+.weui__item-top {
+  margin: 10rpx 20rpx;
+  padding-bottom: 10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #eee;
+}
+
+.weui__item-title {
+  font-size: 30rpx;
+}
+
+.weui__item-text {
+  font-size: 28rpx;
+  color: #999;
+  margin-left: 40rpx;
+}
+
+.font_black {
+  color: black;
+}
+
+.weui__set {
+  background: #eee;
+  text-align: right;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+#message,
+#delete {
+  padding: 10rpx 20rpx;
+  margin: 10rpx 20rpx;
+  background: #006AE9;
+  color: #fff;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+}
+
+#message :hover,
+#delete :hover {
+  opacity: .7;
+}
+
+.btn-add {
+  position: fixed;
+  bottom: 100rpx;
+  left: 50rpx;
+  background: #006DF0;
+  border-radius: 50%;
+  width: 100rpx;
+  height: 100rpx;
+  box-shadow: 0rpx 10rpx 30rpx #666;
+  transition: .5s;
+  transform: scale(1);
+  opacity: 1;
+}
+
+.btn-add::after {
+  content: "+";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 100rpx;
+  color: #fff;
+  font-size: 3rem;
+}
+
+.btn-add:hover {
+  opacity: .7;
+  transform: scale(0.95);
+}

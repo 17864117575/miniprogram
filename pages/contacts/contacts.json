@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "persons": "../../components/persons/persons"
+  },
+  "navigationBarTitleText": "联系人"
+}

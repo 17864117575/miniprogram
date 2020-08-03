@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "htabs": "../../../components/htabs/htabs"
+  },
+  "navigationBarTitleText": "公告"
+}

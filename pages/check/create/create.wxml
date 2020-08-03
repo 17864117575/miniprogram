@@ -1,0 +1,98 @@
+<import src="../../common/head.wxml" />
+<import src="../../common/foot.wxml" />
+
+<view class="container">
+	<template is="head" data="{{title: '新建市场检验委托申请'}}" />
+	<form catchsubmit="formSubmit">
+
+		<view class="weui-cells__title">人员</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__bd weui-cell__container" style="min-height:2.5rem;">
+					<block wx:for="{{memberInfo.showList}}" wx:key="key">
+						<view class="weui__member" data-data="{{item}}" bindtap="onDelete">{{item.name + ' x'}}</view>
+					</block>
+					<picker range="{{memberInfo.remainList}}" range-key="name" bindchange="onChooseMember">
+						<text class="weui-input__btn-add">+添加员工</text>
+					</picker>
+				</view>
+			</view>
+		</view>
+
+		<view class="weui-cells__title">样品名称</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__bd">
+					<input class="weui-input" name="name" value=""></input>
+				</view>
+			</view>
+		</view>
+
+		<view class="weui-cells__title">送检日期</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">当前选择：</view>
+				</view>
+				<view class="weui-cell__bd">
+					<picker mode="date" name="date" value="{{date}}" bindchange="bindDateChange">
+						<view class="weui-input">{{date}}</view>
+					</picker>
+				</view>
+			</view>
+		</view>
+
+		<view class="weui-cells__title">挑战性试验</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__bd">
+					<input class="weui-input" name="challenge" value=""></input>
+				</view>
+			</view>
+		</view>
+
+		<view class="page-body">
+			<view class="page-section">
+				<view class="weui-cells__title">CAMVA实验</view>
+				<view class="weui-cells weui-cells_after-title">
+					<view class="weui-cell weui-cell_input">
+						<view class="weui-cell__hd">
+							<view class="weui-label">当前选择：</view>
+						</view>
+						<view class="weui-cell__bd">
+							<picker name="camva" bindchange="bindPickerChange" value="" range="{{['item1','item2','item3']}}">
+								<view class="weui-input">{{text1 ? text1 : ""}}</view>
+							</picker>
+						</view>
+					</view>
+				</view>
+
+				<view class="weui-cells__title">
+					审批事由
+					<p style="color:red;">*</p>
+				</view>
+				<view class="textarea-wrp">
+					<textarea name="reason" value="" auto-height></textarea>
+				</view>
+
+				<view class="weui-cells__title">备注</view>
+				<view class="textarea-wrp">
+					<textarea name="remark" value="" auto-height />
+					</view>      
+        
+				<view class="weui-cells__title">添加图片</view>
+				<view class="pictures__container">
+					<view class="weui-cell__picture" bindtap="addPicture">+</view>
+					<block wx:for="{{picturesList}}" wx:key="key">
+						<pictures src="{{item}}" bindonDelete="handleOnDelete"></pictures>
+					</block>
+				</view>     
+
+      <view class="btn-area">
+        <button type="primary" formType="submit">提交</button>
+      </view>
+
+    </view>
+    </view>
+  </form>
+</view>

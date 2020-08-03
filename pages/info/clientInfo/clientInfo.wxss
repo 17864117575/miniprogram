@@ -1,5 +1,4 @@
 @import '../../common/lib/weui.wxss';
-@import '../../../resource/iconfont/stylesheet.wxss';
 
 .container {
   justify-content: unset;
@@ -12,6 +11,12 @@
 
 .client-info-bottom {
   margin: 40rpx;
+}
+
+.order-state {
+  right: 20rpx;
+  top: 20rpx;
+  font-size: 28rpx;
 }
 
 .client-info-cell {
@@ -72,6 +77,14 @@
 
 .weui-cell__bd {
   font-size: 32rpx;
+  text-align: right;
+}
+
+.weui-cell__bd-arrow {
+  right: 0rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
 }
 
 .title-telephone__line {
@@ -97,6 +110,10 @@
   transition: .5s;
   transform: scale(1);
   opacity: 1;
+}
+
+.btn__color-white {
+  background: white;
 }
 
 .btn-add::after {

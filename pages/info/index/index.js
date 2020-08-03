@@ -1,29 +1,39 @@
-// pages/sample/index/index.js
+var util = require("../../../utils/util");
+
 Page({
   data: {
     grids: [{
         name: '客户',
         path: "../client/client",
-        icon: "company.png"
+        param: util.formatParam({
+          sea: 0
+        }), //携带参数
+        icon: "company.png",
       },
       {
         name: '订单',
-        path: "salary",
+        path: "../../orders/orders",
+        param: "", //携带参数
         icon: "orders.png"
       },
       {
         name: '公海',
-        path: "salary",
+        path: "../client/client",
+        param: util.formatParam({
+          sea: 1
+        }), //携带参数
         icon: "sea.png"
       },
       {
-        name: '电话簿',
-        path: "../../sample/telephonenumbers/phonenumbers",
+        name: '联系人',
+        path: "../../contacts/contacts",
+        param: "", //携带参数
         icon: "person.png"
       },
       {
         name: 'KPI',
-        path: "salary",
+        path: "../kpi/main/main",
+        param: "", //携带参数
         icon: "analyze.png"
       }
     ],
@@ -34,26 +44,34 @@ Page({
     }
   },
   onLoad: function (options) {
+    wx.showLoading({
+      title: '请稍后~',
+      mask: true
+    })
 
     var self = this;
     wx.request({
-      url: 'https://v1.hitokoto.cn/',
+      url: 'https://v1.alapi.cn/api/mingyan?typeid=34',
       success(e) {
+        wx.hideLoading();
+
         self.setData({
           beautifulline: {
-            hitokoto: e.data.hitokoto,
-            from: e.data.from
+            hitokoto: e.data.data.content,
+            from: e.data.data.author
           }
         })
       }
     })
-
   },
 
-  onHide: function () {
-    // 页面隐藏
-  },
-  onUnload: function () {
-    // 页面关闭
+  onFuncClick: function (e) {
+    const {
+      data
+    } = e.currentTarget.dataset;
+
+    wx.navigateTo({
+      url: data.path + data.param
+    })
   }
 })

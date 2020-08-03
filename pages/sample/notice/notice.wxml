@@ -1,0 +1,18 @@
+<view class="container">
+	<htabs tabs="{{htabs}}" binditemChange="handleItemChange"></htabs>
+
+	<view class="notice__container">
+		<view class="notice__item" wx:for="{{showList}}" wx:key="{{item.title}}">
+			<view class="notice__top">
+				<view>{{item.author}}</view>
+				<view class="notice__text">{{item.date}}</view>
+			</view>
+			<view class="notice__title">{{item.title}}</view>
+			<view class="notice__message">{{item.msg}}</view>
+		</view>
+	</view>
+	
+	<!-- <block wx:if="{{userInfo.state == 1}}"> 是否是管理员 -->
+		<view class="btn-add" bindtap="onBtnAddNoticeClick"></view>
+	<!-- </block> -->
+</view>

@@ -4,12 +4,12 @@
 		<view class="weui-cells weui-cells_after-title">
 			<view class="weui-cell">
 				<view class="weui-label">
-					{{isclient? '联系人':'客户姓名'}}
+					{{isclient? '客户姓名':'联系人'}}
 					<p style="color:red;">*</p>
 				</view>
 				<input class="weui-cell__bd" name="name" value="{{clientInfo.name}}"></input>
 			</view>
-			<view class="weui-cell" wx:if="{{isclient}}">
+			<view class="weui-cell" wx:if="{{!isclient}}">
 				<view class="weui-label">性别 </view>
 				<radio-group class="weui-cell__bd" bindchange="onGenderChange" name="gender" value="{{clientInfo.gender}}">
 					<radio value="1" checked="{{clientInfo.gender==1}}">男</radio>
@@ -20,12 +20,12 @@
 				<view class="weui-label">联系方式</view>
 				<input class="weui-cell__bd" type="number" name="telephone" value="{{clientInfo.telephone}}"></input>
 			</view>
-			<view class="weui-cell" wx:if="{{isclient}}">
+			<view class="weui-cell" wx:if="{{!isclient}}">
 				<view class="weui-label">电子邮箱</view>
 				<input class="weui-cell__bd" name="email" value="{{clientInfo.email}}"></input>
 			</view>
 
-			<block wx:if="{{!isclient}}">
+			<block wx:if="{{isclient}}">
 				<view class="weui-cell">
 					<view class="weui-label">客户行业</view>
 					<picker class="weui-cell__bd" range="{{typeList}}" name="type" value="{{clientInfo.type}}" bindchange="onTypeChange">
@@ -42,22 +42,24 @@
 				</view>
 			</block>
 
-			<view class="weui-cell">
-				<view class="weui-label">{{isclient?'关键决策人':'重点客户'}}
-					<p style="color:red;">*</p>
+			<block wx:if="{{!isclient}}">
+				<view class="weui-cell">
+					<view class="weui-label">{{isclient?'关键决策人':'重点客户'}}
+						<p style="color:red;">*</p>
+					</view>
+					<view class="weui-cell__bd">
+						<switch checked="{{clientInfo.importance}}" name="importance" value="{{clientInfo.importance}}" bindchange="onImportanceChange"></switch>
+					</view>
 				</view>
-				<view class="weui-cell__bd">
-					<switch checked="{{clientInfo.importance}}" name="importance" value="{{clientInfo.importance}}" bindchange="onImportanceChange"></switch>
-				</view>
-			</view>
 
-			<view class="weui-cell">
-				<view class="weui-label">
-					职务
-					<p style="color:red;">*</p>
+				<view class="weui-cell">
+					<view class="weui-label">
+						职务
+						<p style="color:red;">*</p>
+					</view>
+					<input class="weui-cell__bd" name="email" value="{{clientInfo.occuption}}"></input>
 				</view>
-				<input class="weui-cell__bd" name="email" value="{{clientInfo.occuption}}"></input>
-			</view>
+			</block>
 		</view>
 
 		<view class="weui-cells weui-cells_after-title" style="margin-top:40rpx;">

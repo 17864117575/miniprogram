@@ -1,4 +1,5 @@
 var util = require('../../utils/util');
+var app = getApp();
 Page({
 
   /**
@@ -60,14 +61,12 @@ Page({
     //   title: '请稍后~',
     // })
 
-    // let url = util.formatUrl("getapp", {
-    //   "string": "zft",
-    //   "number": 123
+    // let url = util.formatUrl("wxLogin/toLogin", {
+    //   "username": this.data.username,
     // });
     // console.log(url);
     // wx.request({
     //   url: url,
-    //   method: 'POST',
     //   success(res) {
     //     console.log(res);
     //     if (res) {
@@ -77,16 +76,16 @@ Page({
     //         duration: '2000',
     //         complete: () => {
     //           setTimeout(function () {
-    //             wx.navigateTo({
-    //               url: '../index/index.wxml',
-    //             })
+    //              wx.switchTab({
+    //                 url: '../index/index',
+    //              })
     //           }, 2000)
     //         }
     //       })
     //     } else {
     //       wx.showModal({
     //         title: '提示',
-    //         content: '用户名或密码有误',
+    //         content: '用户名不存在~',
     //         showCancel: false
     //       })
     //     }
@@ -100,7 +99,7 @@ Page({
     // })
 
     // todo
-    if (this.data.username == "123" && this.data.password == "123") {
+    if (this.data.username == "123") {
       wx.switchTab({
         url: '../index/index',
       })

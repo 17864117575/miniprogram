@@ -1,0 +1,30 @@
+<view class="container">
+	<view class="weui__item-cintainer" wx:for="{{dailyList}}" wx:key="key">
+		<view class="weui__item-top">
+			<view>
+				<text class="weui__item-title"> {{item.author}}</text>
+				<text class="weui__item-text">{{item.read ? '已读' : '未读'}}</text>
+			</view>
+			<view class="weui__item-text">{{item.date}}</view>
+		</view>
+
+		<view wx:if="{{item.nowText}}" class="weui__item-text">
+			今日工作内容：
+			<text class="font_black">{{item.nowText}}</text>
+		</view>
+		<view wx:if="{{item.nextText}}" class="weui__item-text">
+			明日工作内容：
+			<text class="font_black">{{item.nextText}}</text>
+		</view>
+		<view wx:if="{{item.problem}}" class="weui__item-text">
+			遇到的问题：
+			<text class="font_black">{{item.problem}}</text>
+		</view>
+
+		<view class="weui__set">
+			<text id="delete" data-data="" bindtap="onDelete">删除</text>
+			<!-- <text id="message">回复</text> -->
+		</view>
+	</view>
+	<view class="btn-add" bindtap="onBtnAddDailyClick"></view>
+</view>

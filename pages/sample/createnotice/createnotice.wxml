@@ -1,0 +1,52 @@
+<view class="container">
+	<form bindsubmit="onsubmit">
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell">
+				<view class="weui-label" value="">
+					公告标题
+					<p style="color:red;">*</p>
+				</view>
+				<input class="weui-cell__bd" name="title" value=""></input>
+			</view>
+
+			<view class="weui-cell">
+				<view class="weui-label"> 开始时间 </view>
+				<picker style="width: 450rpx;" mode="date" name="starttime" value="{{starttime}}" bindchange="onStartTimeChange">
+					<view class="weui-cell__bd">
+						{{starttime ? starttime : "请选择"}}
+						<text class="icon-arrow-right item-arrow"></text>
+					</view>
+				</picker>
+			</view>
+
+			<view class="weui-cell">
+				<view class="weui-label"> 结束时间 </view>
+				<picker style="width: 450rpx;" mode="date" name="endtime" value="{{endtime}}" bindchange="onEndTimeChange">
+					<view class="weui-cell__bd">
+						{{endtime ? endtime : "请选择"}}
+						<text class="icon-arrow-right item-arrow"></text>
+					</view>
+				</picker>
+			</view>
+
+			<view class="weui-cell" style="display: flex;flex-direction: column;-webkit-box-align: unset;-webkit-align-items: unset;align-items: unset;">
+				<view class="weui-label" value="">通知部门</view>
+				<checkbox-group name="group" value="">
+					<checkbox wx:for="{{groupList}}" wx:key="key" value="{{item.id}}">{{item.name}}</checkbox>
+				</checkbox-group>
+			</view>
+		</view>
+
+		<view class="weui-cells__title">
+			公告正文
+			<p style="color:red;">*</p>
+		</view>
+		<view class="weui-cells weui-cells_after-title">
+			<view class="textarea-wrp">
+				<textarea name="message" value="" auto-height />
+				</view>  
+	 </view>
+
+   <button form-type="submit" type="primary">提交</button>
+  </form>
+</view>

@@ -1,0 +1,51 @@
+@import '../../common/lib/weui.wxss';
+
+.weui-cell {
+  padding: 10px 30px 10px 20px;
+}
+
+.weui-cells {
+  position: unset;
+  border-bottom: 1rpx solid #D9D9D9;
+  font-size: 30rpx;
+}
+
+.weui-cell__input {
+  border: 2rpx solid #eee;
+  margin: 0 5px;
+  border-radius: 5rpx;
+}
+
+.item-arrow {
+  position: absolute;
+  right: 20rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.weui-cell__bd {
+  color: #999;
+  text-align: right;
+}
+
+textarea {
+  padding: 20rpx;
+}
+
+.textarea-wrp {
+  padding: 0 25rpx;
+  background-color: #fff;
+}
+
+checkbox {
+  margin: 0;
+  flex: 0 0 auto;
+  color: #797979;
+  font-size: 28rpx;
+  width: 33.3%;
+  padding-top: 20rpx;
+}
+
+button {
+  margin: 100rpx 40rpx;
+}

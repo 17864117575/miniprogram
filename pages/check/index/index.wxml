@@ -1,0 +1,23 @@
+<view class="container">
+
+	<view class="check__container">
+		<view class="check__item" wx:for="{{checkList}}" wx:key="key">
+			<view class="check__top">
+				<view class="check__name">{{item.person}}</view>
+				<view class="check__status" style="background:{{item.color}}">{{item.stats}}</view>
+			</view>
+
+			<view class="check__content">
+				<view class="check__title">{{item.content}}</view>
+				<block wx:if="{{item.link}}">
+					<view class="check__text">关联业务：{{item.link}}</view>
+				</block>
+				<view class="check__text" style="text-align:right;">{{item.date}}</view>
+			</view>
+
+			<view class="btn-more" data-data="{{item}}" bindtap="onMoreClick">...</view>
+		</view>
+	</view>
+	<view class="btn-add" bindtap="onAddCheckClick"></view>
+
+</view>

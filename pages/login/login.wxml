@@ -3,19 +3,19 @@
 		<view class="logo">
 			<image src="{{logo}}" mode="aspectFit"></image>
 		</view>
-		<view class="logo-title">
+		<!-- <view class="logo-title">
 			<text>艾卓CRM</text>
-		</view>
+		</view> -->
 	
 		<view class="flex-wrap input-wrap">
 			<text class="label">用户名</text>
-			<input value="{{username}}" bindinput="updateEmpid" id="username" class="account-info-input" />
+			<input value="{{username}}" placeholder="请输入手机号" bindinput="updateEmpid" id="username" class="account-info-input" />
 		</view>
-		<view class="flex-wrap input-wrap">
+		<!-- <view class="flex-wrap input-wrap">
 			<text class="label">密码</text>
 			<input type="{{pwdState?'number':'password'}}" bindinput="updatePassword" id="password" class="account-info-input" value="{{password}}" />
 			<view class="{{pwdState?'icon-browse':'icon-eye-close'}}" style="width:100rpx;text-align:center;" bindtap="onPwdStateClick"></view>
-		</view>
+		</view> -->
 		<view class="checkbox-container">
 			<checkbox class=".weui-agree__checkbox-icon" checked="{{isSelect}}" bindtap="onCheckBoxChange" value="cb">记住密码</checkbox>
 		</view>

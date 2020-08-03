@@ -1,12 +1,10 @@
 .logo {
-  width: 350rpx;
-  height: 200rpx;
-  margin: 0 auto;
+  width: 250rpx;
+  margin: 100rpx auto;
 }
 
 .logo>image {
   width: 100%;
-  height: 100%;
 }
 
 .logo-title {
