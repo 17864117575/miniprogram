@@ -1,6 +1,6 @@
 .logo {
   width: 250rpx;
-  margin: 100rpx auto;
+  margin: 0rpx auto 100rpx;
 }
 
 .logo>image {
@@ -85,4 +85,8 @@
 
 .error {
   color: #e64240;
+}
+
+.btn-area {
+  margin-top: 200rpx;
 }

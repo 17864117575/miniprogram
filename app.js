@@ -62,11 +62,6 @@ App({
     },
     onlyone: false, //是否只是显示一次
     serverUrl: "https://192.168.1.1",
-    userInfo: null,
-    // 阿里省市请求
-    provinceUrl: "http://datavmap-public.oss-cn-hangzhou.aliyuncs.com/areas/csv/100000_province.json",
-    cityUrl: (cityId) => {
-      return "http://datavmap-public.oss-cn-hangzhou.aliyuncs.com/areas/csv/" + cityId + "_city.json"
-    }
+    userInfo: null
   }
 })

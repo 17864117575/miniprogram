@@ -64,21 +64,29 @@ Page({
     // let url = util.formatUrl("wxLogin/toLogin", {
     //   "username": this.data.username,
     // });
-    // console.log(url);
+
+    // var self = this;
     // wx.request({
     //   url: url,
     //   success(res) {
-    //     console.log(res);
     //     if (res) {
+    //           if (!res.data) {
+    //             wx.showToast({
+    //               title: '未获取到用户信息~',
+    //             })
+    //             return;
+    //           }
+    //       app.globalData.userInfo = res.data;
+
     //       wx.showToast({
     //         title: '登录成功~',
     //         icon: 'success',
     //         duration: '2000',
     //         complete: () => {
     //           setTimeout(function () {
-    //              wx.switchTab({
-    //                 url: '../index/index',
-    //              })
+    //             wx.switchTab({
+    //               url: '../index/index',
+    //             })
     //           }, 2000)
     //         }
     //       })

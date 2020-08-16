@@ -88,24 +88,35 @@
 }
 
 /* 客户状态 */
+.icon-green,
 .icon-importance,
 .icon-normal {
   position: absolute;
   right: 0rpx;
   top: 0rpx;
-  width: 120rpx;
+  width: 160rpx;
   height: 90rpx;
   clip-path: polygon(0 0, 100% 100%, 100% 0, 0 0);
   color: #fff;
   font-size: 28rpx;
   text-align: right;
-  letter-spacing: 10rpx
+  line-height: 50rpx;
+}
+
+.icon-green,
+.icon-importance,
+.icon-normal text {
+  padding-right: 20rpx;
 }
 
 .icon-importance {
-  background: #FD3560;
+  background: orangered;
 }
 
 .icon-normal {
-  background: #3b9702;
+  background: rgb(247, 188, 82);
+}
+
+.icon-green {
+  background: seagreen;
 }

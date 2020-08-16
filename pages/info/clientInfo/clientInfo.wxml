@@ -10,16 +10,11 @@
 					</view>
 					<view class="client-info-cell">
 						<view class="weui-label">成交状态： </view>
-						<block wx:if="{{clientInfo != null && clientInfo.deal}}">
-							<view class="weui-cell__bd" style="color:green;">已成交</view>
-						</block>
-						<block wx:else>
-							<view class="weui-cell__bd" style="color:red;">未成交</view>
-						</block>
+						<view class="weui-cell__bd" style="color:green;">{{clientInfo.dealStatus}}</view>
 					</view>
 					<view class="client-info-cell">
 						<view class="weui-label">客户级别： </view>
-						<view class="weui-cell__bd">{{clientInfo?clientInfo.importance?'重点客户':'普通客户':'普通客户'}}</view>
+						<view class="weui-cell__bd">{{clientInfo.level}}</view>
 					</view>
 					<view class="client-info-cell">
 						<view class="weui-label">联系方式： </view>
@@ -29,19 +24,19 @@
 				<view class="client-info-container">
 					<view class="client-info-cell">
 						<view class="weui-label">来源： </view>
-						<view class="weui-cell__bd">{{clientInfo?clientInfo.rigion:'来源'}}</view>
+						<view class="weui-cell__bd">{{clientInfo?clientInfo.source:'来源'}}</view>
 					</view>
 					<view class="client-info-cell">
 						<view class="weui-label">行业： </view>
-						<view class="weui-cell__bd">{{clientInfo?clientInfo.type:'行业'}}</view>
+						<view class="weui-cell__bd">{{clientInfo?clientInfo.industry:'行业'}}</view>
 					</view>
 					<view class="client-info-cell">
 						<view class="weui-label">城市： </view>
-						<view class="weui-cell__bd">{{clientInfo?clientInfo.addresss:'地址'}}</view>
+						<view class="weui-cell__bd">{{clientInfo?clientInfo.address:'地址'}}</view>
 					</view>
 					<view class="client-info-cell">
 						<view class="weui-label">详细地址： </view>
-						<view class="weui-cell__bd">{{clientInfo?clientInfo.addressdetail:'详细地址'}}</view>
+						<view class="weui-cell__bd">{{clientInfo?clientInfo.detailAddress:'详细地址'}}</view>
 					</view>
 					<view class="client-info-cell">
 						<view class="weui-label">备注： </view>
@@ -72,10 +67,9 @@
 					<button type="primary" bindtap="onBtnApplyClick" data-data="{{clientInfo}}">申请领取</button>
 				</block>
 
-				<block wx:if="{{true}}">
-					<!-- 如果是管理员 -->
+				<!-- <block wx:if="{{true}}">
 					<button type="warn" bindtap="onBtnDeleteClick" data-data="{{clientInfo}}">删除客户</button>
-				</block>
+				</block> -->
 			</view>
 		</block>
 
@@ -97,7 +91,7 @@
 					<view class=".weui-label">{{item.remark}}</view>
 					<view class="client-info-cell__top">
 						<view class="client-info-cell__type-tip">{{typeList[item.type]}}</view>
-						<view class="icon-ashbin client-info-cell__delete" bindtap="onTaskDeleteClick"></view>
+						<!-- <view class="icon-ashbin client-info-cell__delete" bindtap="onTaskDeleteClick"></view> -->
 					</view>
 				</view>
 			</view>

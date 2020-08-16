@@ -43,27 +43,27 @@ Page({
       from: "王阳明"
     }
   },
-  onLoad: function (options) {
-    wx.showLoading({
-      title: '请稍后~',
-      mask: true
-    })
+  // onLoad: function (options) {
+  //   wx.showLoading({
+  //     title: '请稍后~',
+  //     mask: true
+  //   })
 
-    var self = this;
-    wx.request({
-      url: 'https://v1.alapi.cn/api/mingyan?typeid=34',
-      success(e) {
-        wx.hideLoading();
+  //   var self = this;
+  //   wx.request({
+  //     url: 'https://v1.alapi.cn/api/mingyan?typeid=34',
+  //     success(e) {
+  //       wx.hideLoading();
 
-        self.setData({
-          beautifulline: {
-            hitokoto: e.data.data.content,
-            from: e.data.data.author
-          }
-        })
-      }
-    })
-  },
+  //       self.setData({
+  //         beautifulline: {
+  //           hitokoto: e.data.data.content,
+  //           from: e.data.data.author
+  //         }
+  //       })
+  //     }
+  //   })
+  // },
 
   onFuncClick: function (e) {
     const {

@@ -110,34 +110,59 @@ Page({
   onLoad: function (options) {
     if (Object.keys(options).length != 0) {
       let clientInfo = JSON.parse(options.data);
-      this.setData({
-        clientInfo
-      })
-
       wx.setNavigationBarTitle({
         title: clientInfo.name ? clientInfo.name : ''
       })
-    }
 
-    this.setData({
-      personList: [{
-        name: '王先生',
-        gender: 1,
-        telephone: 13754435050,
-        occuption: "技术总监", //职位
-        email: "zhoufeitian@yahoo.com",
-        address: "山东省/济南市/历下区",
-        param: "关键决策人", //是否是关键决策人
-      }, {
-        name: '周五',
-        gender: 1,
-        telephone: 13754435050,
-        occuption: "技术总监", //职位
-        email: "zhoufeitian@yahoo.com",
-        address: "山东省/济南市/历下区",
-        param: "", //是否是关键决策人
-      }]
-    })
+      // wx.request({
+      //   url: '/customer/getCustomerDetails?customerId=' + clientInfo.customerId,
+      //   success: (x) => {
+      this.setData({
+        clientInfo: {
+          customerId: 10101,
+          name: "济南AAA公司",
+          dealStatus: "未成交",
+          level: "A跟进客户",
+          industry: "生产",
+          source: "线上询价",
+          telephone: "15621866666",
+          remark: "",
+          address: "山东省济南市历下区",
+          detailAddress: '某某街道'
+        }
+      });
+      //   }
+      // })
+
+
+      // wx.request({
+      //   url: '/contacts/getContactsByCustomer?customerId=' + clientInfo.customerId,
+      //   method: 'POST',
+      //   success: (x) => {
+          
+      //   }
+      // })
+      this.setData({
+        personList: [{
+          contactsId:1001,
+          name: '王先生',
+          sex: 1,
+          mobile: 13754435050,
+          post: "技术总监", //职位
+          email: "zhoufeitian@yahoo.com",
+          address: "山东省/济南市/历下区",
+          decision: "关键决策人", //是否是关键决策人
+        }, {
+          name: '周五',
+          gender: 1,
+          mobile: 13754435050,
+          post: "技术总监", //职位
+          email: "zhoufeitian@yahoo.com",
+          address: "山东省/济南市/历下区",
+          param: "", //是否是关键决策人
+        }]
+      })
+    }
   },
 
   // 保留分享功能

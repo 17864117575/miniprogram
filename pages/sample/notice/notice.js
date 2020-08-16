@@ -51,10 +51,19 @@ Page({
   },
 
   onLoad: function (options) {
+    // wx.showLoading({
+    //   title: '请稍后~',
+    //   mask: true
+    // });
+
     // wx.request({
     //   url: 'url',
-    //   success(e) {
-
+    //   success: (res) => {
+    //     wx.hideLoading();
+    //     this.setData({
+    //       noticeList: res.data,
+    //       showList: this.setNoticeList(res.data)
+    //     })
     //   },
     //   fail(e) {
 
@@ -70,25 +79,22 @@ Page({
 
   handleItemChange: function (e) {
     let idx = e.detail.index;
-    let list = [];
-    if (idx == 0) {
-      list = this.data.noticeList.filter((x) => {
-        return x.state == 1;
-      })
-    } else {
-      list = this.data.noticeList.filter((x) => {
-        return x.state == 0;
-      })
-    }
-
     this.setData({
-      showList: list
+      showList: this.setNoticeList(this.data.noticeList, idx != 0)
     })
   },
 
   onBtnAddNoticeClick: function (e) {
     wx.navigateTo({
       url: '../../sample/createnotice/createnotice',
+    })
+  },
+
+  // 筛选是否过期
+  setNoticeList: function (list, over = false) {
+    var date = new Date();
+    return list.filter((x) => {
+      return over ? date.getTime() >= x.endTime : x.endTime > date.getTime();
     })
   }
 })

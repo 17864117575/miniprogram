@@ -6,117 +6,124 @@ Page({
     tabs: [],
     showList: [],
     clientList: [{
-      id: 1001,
+      customerId: 1001,
       name: "济南efd公司",
-      deal: true, //是否成交
+      dealStatus: true, //是否成交
       telephone: '13805317777',
-      importance: false, // 是否是重点客户
-      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
-      type: '美容', //客户行业
+      level: "普通客户", // 是否是重点客户
+     
+      industry: '化工', //客户行业
       address: '',
       addressdetail: '',
       origin: '电话',
       remark: '',
       principle: '', //负责人
-      sea: true, //是否是公海客户
+      endOrder: 88, //最后一单至今的天数
+      isDeal: true //是否处理
     }, {
-      id: 1001,
+      customerId: 1001,
       name: "济南efd公司",
-      deal: false, //是否成交
+      dealStatus: false, //是否成交
       telephone: '13805317777',
-      importance: false, // 是否是重点客户
-      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
-      type: '美容', //客户行业
+      level: "普通客户", // 是否是重点客户
+      industry: '化工', //客户行业
       address: '',
       addressdetail: '',
       origin: '电话',
       remark: '',
       principle: '', //负责人
-      sea: true, //是否是公海客户
+      endOrder: 108, //最后一单至今的天数
+      isDeal: true //是否处理
     }, {
-      id: 1001,
+      customerId: 1001,
       name: "济南efd公司",
-      deal: true, //是否成交
+      dealStatus: true, //是否成交
       telephone: '13805317777',
-      importance: false, // 是否是重点客户
-      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
-      type: '美容', //客户行业
+      level: "普通客户", // 是否是重点客户
+     
+      industry: '化工', //客户行业
       address: '',
       addressdetail: '',
       origin: '电话',
       remark: '',
       principle: '', //负责人
-      sea: true, //是否是公海客户
+      endOrder: 108, //最后一单至今的天数
+      isDeal: false //是否处理
     }, {
-      id: 1001,
+      customerId: 1001,
       name: "济南efd公司",
-      deal: true, //是否成交
+      dealStatus: true, //是否成交
       telephone: '13805317777',
-      importance: false, // 是否是重点客户
-      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
-      type: '美容', //客户行业
+      level: "普通客户", // 是否是重点客户
+     
+      industry: '化工', //客户行业
       address: '',
       addressdetail: '',
       origin: '电话',
       remark: '',
       principle: '小刘', //负责人
-      sea: false, //是否是公海客户
+      endOrder: 89, //最后一单至今的天数
+      isDeal: true //是否处理
     }, {
-      id: 1001,
+      customerId: 1001,
       name: "济南efd公司",
-      deal: true, //是否成交
+      dealStatus: true, //是否成交
       telephone: '13805317777',
       importance: true, // 是否是重点客户
-      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
-      type: '美容', //客户行业
+     
+      industry: '化工', //客户行业
       address: '',
       addressdetail: '',
       origin: '电话',
       remark: '',
       principle: '', //负责人
-      sea: true, //是否是公海客户
+      endOrder: 88, //最后一单至今的天数
+      isDeal: false //是否处理
     }, {
-      id: 1001,
+      customerId: 1001,
       name: "济南efd公司",
-      deal: true, //是否成交
+      dealStatus: true, //是否成交
       telephone: '13805317777',
-      importance: false, // 是否是重点客户
-      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
-      type: '美容', //客户行业
+      level: "普通客户", // 是否是重点客户
+     
+      industry: '化工', //客户行业
       address: '',
       addressdetail: '',
       origin: '电话',
       remark: '老王的重要资源',
       principle: '小刘', //负责人
-      sea: false, //是否是公海客户
+      endOrder: 878, //最后一单至今的天数
+      isDeal: true //是否处理
     }, {
-      id: 1001,
+      customerId: 1001,
       name: "济南efd公司",
-      deal: true, //是否成交
+      dealStatus: true, //是否成交
       telephone: '13805317777',
-      importance: false, // 是否是重点客户
-      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
-      type: '美容', //客户行业
+      level: "普通客户", // 是否是重点客户
+     
+      industry: '化工', //客户行业
       address: '',
       addressdetail: '',
       origin: '电话',
       remark: '',
       principle: '小刘', //负责人
-      sea: false, //是否是公海客户
+      endOrder: 98, //最后一单至今的天数
+      isDeal: false //是否处理
     }, {
-      id: 1001,
+      customerId: 1001,
       name: "济南efd公司",
-      deal: true, //是否成交
+      dealStatus: true, //是否成交
       telephone: '13805317777',
       importance: true, // 是否是重点客户
-      belongId: true, //应该是归属的id与自己的id比对，先用bool代替
-      type: '美容', //客户行业
+     
+      industry: '化工', //客户行业
       address: '',
       addressdetail: '',
       origin: '电话',
       remark: '',
       principle: '小刘', //负责人
-      sea: false, //是否是公海客户
+      endOrder: 80, //最后一单至今的天数
+      isDeal: true //是否处理
     }]
   },
 
@@ -140,47 +147,83 @@ Page({
         color: "seagreen"
       }] : [{
         id: 0,
-        name: "全部客户",
+        name: "我的客户",
         active: true,
         color: ""
       }, {
         id: 1,
-        name: "我的客户",
-        active: false,
-        color: ""
-      }, {
-        id: 2,
-        name: "大于90天",
+        name: "已成交90天",
         active: false,
         color: "rgb(247, 188, 82)"
       }, {
-        id: 3,
-        name: "大于180天",
+        id: 2,
+        name: "已成交180天",
         active: false,
         color: "orangered"
       }]
 
       this.setData({
         tabs: list,
-        sea: this.data.sea //是否是公海客户页面
+        sea: this.data.sea, //是否是公海客户页面
+        showList: this.data.clientList
       })
 
       wx.setNavigationBarTitle({
         title: this.data.sea ? '公海' : '客户'
       })
 
-      this.setData({
-        showList: this.data.clientList.filter((x) => {
-          return x.sea == this.data.sea;
-        })
-      })
+      // TODO
+      // 如果不是公海客户
+      // if (!this.data.sea) {
+      //   let url = app.gloalData.userInfo.realname == "管理员" ? '/customer/getCustomerListByAdmin' : ('getCustomerListByUser?ownerUserId=' + app.globalData.userInfo.ownerUserId);
+      //   wx.request({
+      //     url: app.globalData.serverUrl + url,
+      //     method: 'POST',
+      //     success: (res) => {
+      //       res.data //列表区分
+      //       this.setData({
+      //         clientList: res.data,
+      //         showList: this.setClientList(res.data)
+      //       })
+      //       // customerId
+      //       // name
+      //       // dealStatus
+      //       // level
+      //       // industry
+      //       // endOrder
+      //       // createDate
+      //     }
+      //   })
+      // }
+      // // 如果是公海客户
+      // else {
+      //   wx.request({
+      //     url: app.globalData.serverUrl + '/customer/getHighSeasCustomer',
+      //     method: 'POST',
+      //     success: (res) => {
+      //       // customerId
+      //       // name
+      //       // dealStatus
+      //       // level
+      //       // industry
+      //     }
+      //   })
+      // }
     }
 
-    wx.stopPullDownRefresh({
-      success: () => {
-        wx.hideLoading()
-      }
-    });
+    // wx.request({
+    //   url: app.globalData.serverUrl + '/wxLogin/getUserList',
+    //   method: "POST",
+    //   success: (res) => {
+
+    //     wx.stopPullDownRefresh({
+    //       success: () => {
+    //         wx.hideLoading()
+    //       }
+    //     });
+    //   }
+    // })
+
   },
 
   onShow: function () {
@@ -190,6 +233,7 @@ Page({
         title: '长点击可将客户移至公海',
         duration: 2000
       })
+      // 是否只显示一次
       app.globalData.onlyone = true;
     }
   },
@@ -198,7 +242,29 @@ Page({
     const {
       index
     } = e.detail;
-    console.log("页面下标是：" + index);
+
+    let list = [];
+    if (this.data.sea) {
+      if (index == 0) {
+        list = this.data.clientList;
+      } else if (index == 1) {
+        list = this.data.clientList.filter((v) => {
+          return !v.isDeal;
+        });
+      }
+    } else {
+      if (index == 0) {
+        list = this.data.clientList;
+      } else if (index == 1) {
+        list = this.setClientList(this.data.clientList, [90, 180]);
+      } else if (index == 2) {
+        list = this.setClientList(this.data.clientList, [180]);
+      }
+    }
+
+    this.setData({
+      showList: list
+    })
   },
 
   addClientInfo: function () {
@@ -235,7 +301,6 @@ Page({
     const {
       data
     } = e.currentTarget.dataset;
-    console.log(data)
 
     var self = this;
     wx.showModal({
@@ -244,7 +309,15 @@ Page({
       cancelColor: "red",
       success(res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          wx.request({
+            url: app.globalData.serverUrl + '/customer/updateHighSeas?customerId=' + data.customerId,
+            method: 'POST',
+            success: (x) => {
+              // 重新加载刷新页面
+              self.onLoad();
+            }
+          })
+
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -255,14 +328,30 @@ Page({
 
   onPullDownRefresh: function () {
     console.log("刷新中")
-    wx.showLoading({
-      title: '请稍后~',
-      mask: true
-    });
+    // wx.showLoading({
+    //   title: '请稍后~',
+    //   mask: true
+    // });
 
     var self = this;
     setTimeout(() => {
       self.onLoad()
     }, 1500)
   },
+
+  /**
+   * 
+   * @param {*源数据列表} list 
+   * @param {*时间区域} timearea 
+   */
+  setClientList: function (list, timeday = []) {
+    if (timeday.length <= 0)
+      return list;
+
+    return list.filter((v) => {
+      let condition1 = timeday[0] ? timeday[0] < v.endOrder : true;
+      let condition2 = timeday[1] ? timeday[1] >= v.endOrder : true;
+      return condition1 && condition2;
+    })
+  }
 })

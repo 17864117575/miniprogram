@@ -15,10 +15,24 @@
 			<view style="display:flex;align-items:center;margin-top:20rpx;">
 				<text class="client-list-item__icon icon-explain"></text>
 				<text class="client-list-item__title">{{item.name}}</text>
-				<text class="client-list-item__type">{{'(' + item.type + ')'}}</text>
+				<text class="client-list-item__type">{{'(' + item.industry + ')'}}</text>
 			</view>
-			<text class="client-list-item__number">{{item.telephone}}</text>
-			<view class="{{item.importance?'icon-importance':'icon-normal'}}">{{item.importance?'重要':'普通'}}</view>
+			<text class="client-list-item__number">{{item.level}}</text>
+
+			<block wx:if="{{sea}}">
+				<block wx:if="{{!item.isDeal}}">
+					<view class="icon-green">未处理</view>
+				</block>
+			</block>
+			<block wx:else>
+				<block wx:if="{{item.endOrder >= 90 && item.endOrder < 180 }}">
+					<view class="icon-normal">90-180</view>
+				</block>
+				<block wx:elif="{{item.endOrder >= 180 }}">
+					<view class="icon-importance">>180</view>
+				</block>
+			</block>
+
 		</view>
 	</view>
 </view>

@@ -21,11 +21,11 @@ Page({
       open: false,
       path: "../sample/notice/notice",
     }, {
-      id: 'overwork',
-      name: ['日志', 'Application', "各種申請"],
-      open: false,
-      path: "../daily/index/index",
-    }, {
+    //   id: 'overwork',
+    //   name: ['日志', 'Application', "各種申請"],
+    //   open: false,
+    //   path: "../daily/index/index",
+    // }, {
       id: 'sample',
       name: ['审批', 'Improvement', "申請承認"],
       open: false,
